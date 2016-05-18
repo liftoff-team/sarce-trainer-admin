@@ -1,9 +1,23 @@
 require 'rails_helper'
-require 'support/factory_girl'
 
 describe User do
+  let(:user) { create(:user) }
 
-  describe "have a valid factory" do
-    it { expect(FactoryGirl.build(:user)).to be_valid }
+  it 'has a valid factory' do
+    expect(user).to be_valid
+  end
+
+  it 'creates an user with valid data' do
+    expect { user }.to change { User.count }.from(0).to(1)
+  end
+
+  it 'should validates email presence' do
+    user.email = ''
+    expect(user).not_to be_valid
+  end
+
+  it 'should validates cis presence' do
+    user.cis = ''
+    expect(user).not_to be_valid
   end
 end
