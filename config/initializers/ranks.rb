@@ -1,0 +1,30 @@
+module Rank
+  {
+    sap: { name: 'Sapeur',
+           image_path: 'assets/images/ranks/sapeur.png' },
+    cal: { name: 'Caporal',
+           image_path: 'assets/images/ranks/caporal.png' },
+    cch: { name: 'Caporal-chef',
+           image_path: 'assets/images/ranks/caporal-chef.png' },
+    sgt: { name: 'Sergent',
+           image_path: 'assets/images/ranks/sergent.png' },
+    scc: { name: 'Sergent-chef',
+           image_path: 'assets/images/ranks/sergent-chef.png' },
+    adj: { name: 'Adjudant',
+           image_path: 'assets/images/ranks/adjudant.png' },
+    adc: { name: 'Adjudant-chef',
+           image_path: 'assets/images/ranks/adjudant-chef.png' },
+    mjr: { name: 'Major',
+           image_path: 'assets/images/ranks/major.png' },
+    lt: { name: 'Lieutenant',
+          image_path: 'assets/images/ranks/lieutenant.png' },
+    cne: { name: 'Capitaine',
+           image_path: 'assets/images/ranks/capitaine.png' },
+    cdt: { name: 'Commandant',
+           image_path: 'assets/images/ranks/commandant.png' },
+    lcl: { name: 'Lieutenant - colonel',
+           image_path: 'assets/images/ranks/lieutenant-colonel.png' },
+    col: { name: 'Colonel',
+           image_path: 'assets/images/ranks/colonel.png' }
+  }
+end
