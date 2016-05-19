@@ -35,12 +35,21 @@ gem 'jbuilder', '~> 2.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'guard-rails', require: false
 
 end
+
+group :test do
+  # Shoulda Matchers provides RSpec one-liners that test common Rails functionality
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'factory_girl_rails'
+  # Faker is used to easily generate fake data: names, addresses, phone numbers, etc
+  gem 'faker', '~> 1.6'
+
+end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
