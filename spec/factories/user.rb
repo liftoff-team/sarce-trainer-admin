@@ -7,6 +7,6 @@ FactoryGirl.define do
     password 'test1234'
     password_confirmation 'test1234'
     cis 'grenoble'
-    rank_id 1
+    rank 'sgt'
   end
 end

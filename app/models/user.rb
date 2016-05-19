@@ -6,7 +6,7 @@
 #  last_name              :string           not null
 #  first_name             :string           not null
 #  cis                    :string           not null
-#  rank_id                :integer          not null
+#  rank                   :string           not null
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -32,6 +32,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
-  validates :first_name, :last_name, :cis, :rank_id, presence: true
+  validates :first_name, :last_name, :cis, :rank, presence: true
 
 end
