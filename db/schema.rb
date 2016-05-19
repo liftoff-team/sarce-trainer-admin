@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160518095645) do
     t.string   "last_name",                           null: false
     t.string   "first_name",                          null: false
     t.string   "cis",                                 null: false
-    t.integer  "rank_id",                             null: false
+    t.string   "rank",                                null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
