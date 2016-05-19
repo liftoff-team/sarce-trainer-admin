@@ -1,9 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-
-  def new
-    @ranks = Rank.const_get(:RANKS)
-    super
-  end
+  before_action :load_ranks, only: %i(new create edit update)
 
   private
 
@@ -16,5 +12,9 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:first_name, :last_name, :cis, :rank, :email,
                                  :password, :password_confirmation,
                                  :current_password)
+  end
+
+  def load_ranks
+    @ranks = Rank.const_get(:RANKS)
   end
 end
