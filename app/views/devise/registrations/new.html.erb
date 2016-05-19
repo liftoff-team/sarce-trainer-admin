@@ -20,8 +20,9 @@
 
   <div class="field">
     <%= f.label :rank %><br />
-    <%= f.text_field :rank %>
-    <%= f.select :rank %>
+    <%= f.select(:rank,
+                 @ranks.map { |key, value| [ value[:name], key ] })
+ %>
   </div>
 
   <div class="field">

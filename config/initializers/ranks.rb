@@ -1,5 +1,5 @@
 module Rank
-  {
+  RANKS = {
     sap: { name: 'Sapeur',
            image_path: 'assets/images/ranks/sapeur.png' },
     cal: { name: 'Caporal',
