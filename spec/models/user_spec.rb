@@ -28,23 +28,18 @@
 require 'rails_helper'
 
 describe User do
-  let(:user) { create(:user) }
+  subject { build(:user) }
 
-  it 'has a valid factory' do
-    expect(user).to be_valid
-  end
+  describe 'User validations' do
+    it { should be_valid } # test that factory is valid
 
-  it 'creates an user with valid data' do
-    expect { user }.to change { User.count }.from(0).to(1)
-  end
+    it { should validate_presence_of(:email) }
+    it { should validate_uniqueness_of(:email).case_insensitive }
+    it { should validate_presence_of(:cis) }
+    it { should validate_presence_of(:first_name) }
+    it { should validate_presence_of(:last_name) }
+    it { should validate_presence_of(:rank) }
 
-  it 'should validates email presence' do
-    user.email = ''
-    expect(user).not_to be_valid
-  end
-
-  it 'should validates cis presence' do
-    user.cis = ''
-    expect(user).not_to be_valid
+    it { should validate_confirmation_of(:password) }
   end
 end
