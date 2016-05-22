@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+def create_sarce_trainer_minimal_stack
+  create_users
+end
+
+def create_users
+  FactoryGirl.create_list(:user, 2)
+  puts "- 2 user created"
+end
+
+create_sarce_trainer_minimal_stack
