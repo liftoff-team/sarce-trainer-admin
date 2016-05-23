@@ -47,6 +47,9 @@ group :test do
   gem 'factory_girl_rails'
   # Faker is used to easily generate fake data: names, addresses, phone numbers, etc
   gem 'faker', '~> 1.6'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
 
 end
 
