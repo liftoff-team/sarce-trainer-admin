@@ -1,6 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :load_ranks, only: %i(new create edit update)
 
+
   private
 
   def sign_up_params
