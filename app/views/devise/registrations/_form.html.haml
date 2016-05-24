@@ -1,0 +1,22 @@
+= devise_error_messages!
+.field
+  = f.label :first_name
+  %br/
+  = f.text_field :first_name, autofocus: true
+.field
+  = f.label :last_name
+  %br/
+  = f.text_field :last_name
+.field
+  = f.label :cis
+  %br/
+  = f.text_field :cis
+.field
+  = f.label :rank
+  %br/
+  = f.select(:rank,                                    |
+    @ranks.map { |key, value| [ value[:name], key ] }) |
+.field
+  = f.label :email
+  %br/
+  = f.email_field :email, autofocus: true

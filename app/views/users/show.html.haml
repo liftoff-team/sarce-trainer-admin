@@ -1,0 +1,15 @@
+%h1 My Profile
+%h3
+  = @user.first_name
+  = @user.last_name
+%p
+  %strong Email:
+  = @user.email
+%p
+  %strong CIS:
+  = @user.cis
+%p
+  %strong Rank:
+  = @rank[:name]
+%div= image_tag(@rank[:image_path])
+= link_to 'Edit profile', edit_user_registration_path
