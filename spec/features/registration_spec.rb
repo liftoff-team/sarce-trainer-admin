@@ -23,3 +23,21 @@ feature 'Signing up' do
     User.find_by(email: user.email).confirm
   end
 end
+
+feature 'Signing in' do
+  subject(:user) { create(:user) }
+
+  scenario 'Signing in with valid credentials' do
+    user.confirm
+
+    visit '/'
+    click_on('Sign in')
+
+    fill_in('user_email', with: user.email)
+    fill_in('user_password', with: user.password)
+    click_button 'Log in'
+
+    expect(page).to have_content "Signed in successfully. Signed in as
+                                  #{user.first_name} #{user.last_name}"
+  end
+end
