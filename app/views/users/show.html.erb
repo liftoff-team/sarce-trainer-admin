@@ -1,0 +1,9 @@
+<h1>My Profile</h1>
+
+<h3><%= @user.first_name %> <%= @user.last_name %></h3>
+<p><strong>Email:</strong> <%= @user.email %></p>
+<p><strong>CIS:</strong> <%= @user.cis %></p>
+<p><strong>Rank:</strong> <%= @rank[:name] %></p>
+<div><%= image_tag(@rank[:image_path]) %></div>
+
+<%= link_to 'Edit profile', edit_user_registration_path %>
