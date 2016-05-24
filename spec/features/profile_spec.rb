@@ -1,13 +1,12 @@
 require 'rails_helper'
 
-feature 'edit profile' do
+feature 'Edit profile' do
   subject(:user) { create(:user) }
 
-  scenario 'an user can edit its profile information and password' do
+  scenario 'A user edits its profile information and password' do
     user.confirm
 
     visit '/users/sign_in'
-
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'Log in'
