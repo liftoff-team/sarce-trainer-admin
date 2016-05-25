@@ -11,5 +11,10 @@ FactoryGirl.define do
     password_confirmation   password
     cis                     Faker::Address.city
     rank                    'sgt'
+
+    factory :admin do
+      is_admin true
+    end
   end
+
 end

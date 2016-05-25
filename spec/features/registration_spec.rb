@@ -1,7 +1,8 @@
 require 'rails_helper'
 
-feature 'Sign up' do
-  subject(:user) { build(:user) }
+feature 'new account' do
+  let(:user) { build(:user) }
+  let(:features) { FeaturesSpecHelper.new }
 
   scenario 'A user creates an account with valid data' do
     visit '/'
@@ -19,23 +20,10 @@ feature 'Sign up' do
     last_email.to.should include(user.email)
     expect(page).to have_content 'A message with a confirmation link has been
                                   sent to your email address'
-
-    User.find_by(email: user.email).confirm
   end
-end
-
-feature 'Sign in' do
-  subject(:user) { create(:user) }
 
   scenario 'A user sign in with valid credentials' do
-    user.confirm
-
-    visit '/'
-    click_on 'Sign in'
-
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: user.password
-    click_button 'Log in'
+    features.sign_in(user)
 
     expect(page).to have_content "Signed in successfully. Signed in as
                                   #{user.first_name} #{user.last_name}"

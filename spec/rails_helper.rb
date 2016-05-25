@@ -6,6 +6,7 @@ require 'support/factory_girl'
 require 'capybara/rails'
 require 'support/shoulda_matchers'
 require 'support/mailer_helper.rb'
+require 'helpers/features_spec_helper'
 
 ActiveRecord::Migration.maintain_test_schema!
 
