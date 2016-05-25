@@ -2,11 +2,11 @@ ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'support/factory_girl'
 require 'capybara/rails'
-require 'support/shoulda_matchers'
-require 'support/mailer_helper.rb'
 require 'helpers/features_spec_helper'
+
+# require all config files in support folder
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 
