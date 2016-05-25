@@ -6,6 +6,9 @@ gem 'devise'
 # Templating engine for HTML.
 gem 'haml-rails'
 
+# Bootstrap 4 ruby gem for Ruby on Rails
+gem 'bootstrap'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.rc1', '< 5.1'
 # Use postgresql as the database for Active Record
