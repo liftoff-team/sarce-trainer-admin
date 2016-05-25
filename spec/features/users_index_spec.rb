@@ -2,15 +2,11 @@ require 'rails_helper'
 
 feature 'Users index' do
   let(:user) { build(:user) }
+  let(:features) { FeaturesSpecHelper.new }
   let(:admin) { build(:admin) }
 
   scenario 'As a non-admin user, I cannot access the index' do
-    user.confirm
-
-    visit '/users/sign_in'
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: user.password
-    click_button 'Log in'
+    features.sign_in(user)
 
     visit '/users'
     expect(page).to have_content "You're not allowed to access
@@ -19,12 +15,7 @@ feature 'Users index' do
   end
 
   scenario 'As an admin user, I can access the index' do
-    admin.confirm
-
-    visit '/users/sign_in'
-    fill_in 'user_email', with: admin.email
-    fill_in 'user_password', with: admin.password
-    click_button 'Log in'
+    features.sign_in(admin)
 
     visit '/users'
     expect(page).to have_content 'Users List'
