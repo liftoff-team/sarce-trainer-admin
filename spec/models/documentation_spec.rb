@@ -12,6 +12,14 @@
 
 require 'rails_helper'
 
-RSpec.describe Documentation, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Documentation do
+  subject { build(:documentation) }
+
+  describe 'Documentation validations' do
+    it { should be_valid } # test that factory is valid
+
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:short_name) }
+    it { should validate_presence_of(:cover_path) }
+  end
 end
