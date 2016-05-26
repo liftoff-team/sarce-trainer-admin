@@ -17,4 +17,8 @@
 
 class Question < ApplicationRecord
   belongs_to :documentation
+  validates :body, :answers, :correct_answers, :explanation,
+             :documentation_id, :answer_counter, :positive_rates,
+             :negative_rates, presence: true
+
 end
