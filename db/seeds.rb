@@ -1,5 +1,5 @@
 require 'factory_girl'
-require 'Faker'
+require 'faker'
 # require all factories
 Dir[Rails.root.join('spec/factories/*.rb')].each { |f| require f }
 
@@ -7,6 +7,7 @@ Dir[Rails.root.join('spec/factories/*.rb')].each { |f| require f }
 def create_sarce_trainer_minimal_stack
   create_users
   create_documentations
+  create_questions
 end
 
 def create_users
@@ -17,6 +18,11 @@ end
 def create_documentations
   FactoryGirl.create_list(:documentation, 5)
   puts "- 5 documentations created"
+end
+
+def create_questions
+  FactoryGirl.create_list(:question, 30)
+  puts "- 30 questions created"
 end
 
 create_sarce_trainer_minimal_stack
