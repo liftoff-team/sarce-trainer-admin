@@ -4,8 +4,8 @@
 #
 #  id               :integer          not null, primary key
 #  body             :string
-#  answers          :text
-#  correct_answers  :text
+#  answers          :text             default("{}"), is an Array
+#  correct_answers  :text             default("{}"), is an Array
 #  explanation      :text
 #  documentation_id :integer
 #  answer_counter   :integer          default("0")
@@ -34,5 +34,9 @@ describe Question do
 
   describe 'association' do
     it { should belong_to(:documentation) }
+  end
+
+  describe 'attributes' do
+    it { expect(question.answers).to include(*question.correct_answers) }
   end
 end
