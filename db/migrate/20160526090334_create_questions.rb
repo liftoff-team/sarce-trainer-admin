@@ -2,8 +2,8 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
   def change
     create_table :questions do |t|
       t.string :body
-      t.text :answers
-      t.text :correct_answers
+      t.text :answers, array: true, default: []
+      t.text :correct_answers, array: true, default: []
       t.text :explanation
       t.integer :documentation_id
       t.integer :answer_counter, default: 0
