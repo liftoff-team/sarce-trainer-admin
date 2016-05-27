@@ -26,15 +26,15 @@ ActiveRecord::Schema.define(version: 20160526090334) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "body"
-    t.text     "answers"
-    t.text     "correct_answers"
+    t.text     "answers",          default: [],              array: true
+    t.text     "correct_answers",  default: [],              array: true
     t.text     "explanation"
     t.integer  "documentation_id"
     t.integer  "answer_counter",   default: 0
     t.integer  "positive_rates",   default: 0
     t.integer  "negative_rates",   default: 0
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "users", force: :cascade do |t|
