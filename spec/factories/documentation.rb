@@ -4,5 +4,4 @@ FactoryGirl.define do
     sequence(:short_name) { |n| "DOC#{n}" }
     sequence(:cover_path) { |n| "assets/images/covers/DOC#{n}.jpg" }
   end
-
 end

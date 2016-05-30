@@ -12,10 +12,10 @@
 
 require 'rails_helper'
 
-describe Documentation do
+RSpec.describe Documentation do
   subject { build(:documentation) }
 
-  describe 'Documentation validations' do
+  describe 'validations' do
     it { should be_valid } # test that factory is valid
 
     it { should validate_presence_of(:name) }

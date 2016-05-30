@@ -6,5 +6,6 @@ FactoryGirl.define do
     correct_answers          { answers_array.sample(2) }
     explanation              { Faker::Lorem.sentence }
     documentation_id         { Faker::Number.between(1, Documentation.count) }
+    documentation
   end
 end

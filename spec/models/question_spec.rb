@@ -17,11 +17,12 @@
 
 require 'rails_helper'
 
-describe Question do
-  FactoryGirl.create_list(:documentation, 5)
-  let(:question) { build(:question) }
+RSpec.describe Question do
+  subject(:question) { build(:question) }
 
   describe 'validations' do
+    it { should be_valid }
+
     it { should validate_presence_of(:body) }
     it { should validate_presence_of(:answers) }
     it { should validate_presence_of(:correct_answers) }

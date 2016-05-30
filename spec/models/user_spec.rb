@@ -28,10 +28,10 @@
 
 require 'rails_helper'
 
-describe User do
+RSpec.describe User do
   subject { build(:user) }
 
-  describe 'User validations' do
+  describe 'validations' do
     it { should be_valid } # test that factory is valid
 
     it { should validate_presence_of(:email) }
