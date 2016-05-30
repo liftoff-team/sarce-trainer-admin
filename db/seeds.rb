@@ -7,7 +7,7 @@ def create_sarce_trainer_minimal_stack
   create_users
   create_documentations
   create_questions
-  create_daily_questions
+  create_given_answers
 end
 
 def create_users
@@ -28,6 +28,11 @@ end
 def create_daily_questions
   FactoryGirl.create_list(:daily_question, 30)
   puts '- 30 daily questions created'
+end
+
+def create_given_answers
+  FactoryGirl.create_list(:given_answer, 100)
+  puts "- 100 given answers created"
 end
 
 create_sarce_trainer_minimal_stack

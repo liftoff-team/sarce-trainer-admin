@@ -11,8 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530141753) do
 
+ActiveRecord::Schema.define(version: 20160530141753) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20160530141753) do
     t.string   "cover_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "given_answers", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.text     "answers",     default: [],              array: true
+    t.boolean  "is_correct"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["question_id"], name: "index_given_answers_on_question_id", using: :btree
   end
 
   create_table "questions", force: :cascade do |t|
