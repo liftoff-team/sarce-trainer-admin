@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Edit profile' do
-  let(:user) { create(:user) }
+  let(:user) { create(:user, rank: 'cal') }
   let(:features) { FeaturesSpecHelper.new }
 
   scenario 'A user edits its profile information and password' do
