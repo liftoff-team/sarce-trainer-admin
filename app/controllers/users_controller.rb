@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-
-    unless current_user.is_admin?
-      redirect_to root_path, notice: "You're not allowed to access
-                                    this area: get out!"
-    end
   end
 
   def show
