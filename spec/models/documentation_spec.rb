@@ -16,10 +16,10 @@ RSpec.describe Documentation do
   subject { build(:documentation) }
 
   describe 'validations' do
-    it { should be_valid } # test that factory is valid
+    it { is_expected.to be_valid } # test that factory is valid
 
-    it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:short_name) }
-    it { should validate_presence_of(:cover_path) }
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:short_name) }
+    it { is_expected.to validate_presence_of(:cover_path) }
   end
 end

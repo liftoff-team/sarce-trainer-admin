@@ -21,20 +21,20 @@ RSpec.describe Question do
   subject(:question) { build(:question) }
 
   describe 'validations' do
-    it { should be_valid }
+    it { is_expected.to be_valid }
 
-    it { should validate_presence_of(:body) }
-    it { should validate_presence_of(:answers) }
-    it { should validate_presence_of(:correct_answers) }
-    it { should validate_presence_of(:explanation) }
-    it { should validate_presence_of(:documentation_id) }
-    it { should validate_presence_of(:answer_counter) }
-    it { should validate_presence_of(:positive_rates) }
-    it { should validate_presence_of(:negative_rates) }
+    it { is_expected.to validate_presence_of(:body) }
+    it { is_expected.to validate_presence_of(:answers) }
+    it { is_expected.to validate_presence_of(:correct_answers) }
+    it { is_expected.to validate_presence_of(:explanation) }
+    it { is_expected.to validate_presence_of(:documentation_id) }
+    it { is_expected.to validate_presence_of(:answer_counter) }
+    it { is_expected.to validate_presence_of(:positive_rates) }
+    it { is_expected.to validate_presence_of(:negative_rates) }
   end
 
   describe 'association' do
-    it { should belong_to(:documentation) }
+    it { is_expected.to belong_to(:documentation) }
   end
 
   describe 'attributes' do
