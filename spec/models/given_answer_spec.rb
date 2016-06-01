@@ -17,12 +17,11 @@ RSpec.describe GivenAnswer do
   subject { build(:given_answer) }
 
   describe 'validations' do
-    it { should be_valid } # test that factory is valid
+    it { is_expected.to be_valid } # test that factory is valid
 
-    it { should validate_presence_of(:question_id) }
-    it { should validate_presence_of(:user_id) }
-    it { should validate_presence_of(:answers) }
-    it { should validate_presence_of(:is_correct) }
+    it { is_expected.to validate_presence_of(:question_id) }
+    it { is_expected.to validate_presence_of(:user_id) }
+    it { is_expected.to validate_presence_of(:answers) }
   end
 
   describe 'association' do

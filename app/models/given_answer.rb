@@ -13,5 +13,5 @@
 
 class GivenAnswer < ApplicationRecord
   belongs_to :question
-  validates :question_id, :user_id, :answers, :is_correct, presence: true
+  validates :question_id, :user_id, :answers, presence: true
 end
