@@ -8,7 +8,7 @@ RSpec.feature 'Users index' do
     visit '/users'
   end
 
-  context 'as a non-admin user, I cannot access the index' do
+  context 'a non-admin user wants to access the index' do
     let(:user) { build(:non_admin) }
 
     scenario 'should forbid the access to the users list' do
@@ -18,7 +18,7 @@ RSpec.feature 'Users index' do
     end
   end
 
-  context 'as an admin user, I can access the index' do
+  context 'an admin user wants to access the index' do
     let(:user) { build(:admin) }
 
     scenario 'should allow access to the users list' do

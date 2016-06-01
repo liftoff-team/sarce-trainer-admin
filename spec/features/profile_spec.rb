@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature 'Edit profile' do
-  let(:user) { create(:user) }
   let(:features) { FeaturesSpecHelper.new }
 
   background do
@@ -21,9 +20,13 @@ RSpec.feature 'Edit profile' do
     @updated_user = User.find_by(email: user.email)
   end
 
-  scenario 'should update the user profile with the data provided' do
-    expect(page).to have_content 'Your account has been updated successfully.'
-    expect(@updated_user.rank).to eq('cal')
-    expect(@updated_user.encrypted_password).to_not eq(@old_password)
+  context 'a user wants to change its profile' do
+    let(:user) { create(:user, rank: 'lt') }
+
+    scenario 'should update the user profile with the data provided' do
+      expect(page).to have_content 'Your account has been updated successfully.'
+      expect(@updated_user.rank).to eq('cal')
+      expect(@updated_user.encrypted_password).to_not eq(@old_password)
+    end
   end
 end
