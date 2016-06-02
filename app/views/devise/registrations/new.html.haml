@@ -1,4 +1,4 @@
-%h2 Sign up
+%h2 Inscription
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render partial: "form", locals: { f: f }
   .field
@@ -13,5 +13,5 @@
     %br/
     = f.password_field :password_confirmation, autocomplete: "off"
   .actions
-    = f.submit "Sign up"
+    = f.submit "S'inscrire"
 = render "devise/shared/links"
