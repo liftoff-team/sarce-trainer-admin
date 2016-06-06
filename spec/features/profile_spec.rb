@@ -4,7 +4,7 @@ RSpec.feature 'Edit profile' do
   background do
     sign_in_user(user)
 
-    click_on 'See my profile'
+    click_on 'My profile'
 
     click_on 'Edit profile'
 

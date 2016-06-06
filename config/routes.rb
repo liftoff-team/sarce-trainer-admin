@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :users, only: %i(show index)
+  resource :my_profile, only: :show
 
   namespace :admin do
+    resources :users, only: %i(show index)
     resources :questions
     resources :documentations
     resources :daily_questions

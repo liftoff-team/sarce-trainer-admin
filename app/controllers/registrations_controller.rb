@@ -15,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    user_path(resource)
+    my_profile_path
   end
 
   def load_ranks

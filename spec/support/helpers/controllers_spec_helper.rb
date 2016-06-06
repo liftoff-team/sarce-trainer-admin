@@ -1,7 +1,7 @@
 module ControllerHelpers
   def login_admin
-    @request.env['devise.mapping'] = Devise.mappings[:admin]
-    admin = FactoryGirl.create(:admin)
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+    admin = FactoryGirl.create(:user, :admin)
     admin.confirm
     sign_in :user, admin # sign_in(scope, resource)
   end
