@@ -1,11 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'Edit profile' do
-  let(:features) { FeaturesSpecHelper.new }
-
   background do
-    @old_password = user.encrypted_password
-    features.sign_in(user)
+    sign_in_user(user)
 
     click_on 'See my profile'
 
@@ -16,8 +13,6 @@ RSpec.feature 'Edit profile' do
     fill_in 'user_password_confirmation', with: 'new_password'
     fill_in 'user_current_password', with: user.password
     click_button 'Update'
-
-    @updated_user = User.find_by(email: user.email)
   end
 
   context 'a user wants to change its profile' do
@@ -25,8 +20,8 @@ RSpec.feature 'Edit profile' do
 
     scenario 'should update the user profile with the data provided' do
       expect(page).to have_content 'Your account has been updated successfully.'
-      expect(@updated_user.rank).to eq('cal')
-      expect(@updated_user.encrypted_password).to_not eq(@old_password)
+      expect(page).to have_content 'Caporal'
+      expect(page.find('img')['alt']).to have_content 'Caporal'
     end
   end
 end

@@ -1,15 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature 'Users index' do
-  let(:features) { FeaturesSpecHelper.new }
-
   background do
-    features.sign_in(user)
+    sign_in_user(user)
     visit '/users'
   end
 
   context 'a non-admin user wants to access the index' do
-    let(:user) { build(:non_admin) }
+    let(:user) { build(:user) }
 
     scenario 'should forbid the access to the users list' do
       expect(page).to have_content "You're not allowed to access
@@ -19,7 +17,7 @@ RSpec.feature 'Users index' do
   end
 
   context 'an admin user wants to access the index' do
-    let(:user) { build(:admin) }
+    let(:user) { build(:user, :admin) }
 
     scenario 'should allow access to the users list' do
       expect(page).to have_content 'Users List'

@@ -1,11 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Sign in' do
-  let(:features) { FeaturesSpecHelper.new }
-
-  background do
-    features.sign_in(user)
-  end
+  background { sign_in_user(user) }
 
   context 'an user wants to sign in' do
     let(:user) { build(:user) }

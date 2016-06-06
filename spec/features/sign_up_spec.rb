@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature 'Sign up' do
-  let(:features) { FeaturesSpecHelper.new }
-
   background do
     visit '/'
     click_on 'Register'
