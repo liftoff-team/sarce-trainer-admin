@@ -10,7 +10,7 @@ FactoryGirl.define do
     cis                     { Faker::Address.city }
     rank                    { Rank.const_get(:RANKS).keys.sample }
 
-    factory :admin do
+    trait :admin do
       is_admin true
     end
   end

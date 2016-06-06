@@ -1,7 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :load_ranks, only: %i(new create edit update)
 
-
   private
 
   def sign_up_params
@@ -13,6 +12,10 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:first_name, :last_name, :cis, :rank, :email,
                                  :password, :password_confirmation,
                                  :current_password)
+  end
+
+  def after_update_path_for(resource)
+    user_path(resource)
   end
 
   def load_ranks

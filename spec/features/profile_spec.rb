@@ -1,23 +1,27 @@
 require 'rails_helper'
 
-feature 'Edit profile' do
-  let(:user) { create(:user, rank: 'cal') }
-  let(:features) { FeaturesSpecHelper.new }
-
-  scenario 'A user edits its profile information and password' do
-    features.sign_in(user)
+RSpec.feature 'Edit profile' do
+  background do
+    sign_in_user(user)
 
     click_on 'See my profile'
 
     click_on 'Edit profile'
 
-    select 'Sergent', from: 'user_rank'
+    select 'Caporal', from: 'user_rank'
     fill_in 'user_password', with: 'new_password'
     fill_in 'user_password_confirmation', with: 'new_password'
     fill_in 'user_current_password', with: user.password
     click_button 'Update'
+  end
 
-    expect(page).to have_content 'Your account has been updated successfully.'
-    expect(User.find_by(email: user.email).rank).to eq('sgt')
+  context 'a user wants to change its profile' do
+    let(:user) { create(:user, rank: 'lt') }
+
+    scenario 'should update the user profile with the data provided' do
+      expect(page).to have_content 'Your account has been updated successfully.'
+      expect(page).to have_content 'Caporal'
+      expect(page.find('img')['alt']).to have_content 'Caporal'
+    end
   end
 end

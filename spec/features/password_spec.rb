@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-feature 'Password reset' do
-  subject(:user) { create(:user) }
-
-  scenario 'A user resets its password' do
+RSpec.feature 'Password reset' do
+  background do
     user.confirm
 
     visit '/users/sign_in'
@@ -11,10 +9,16 @@ feature 'Password reset' do
 
     fill_in 'user_email', with: user.email
     click_button 'Send me reset password instructions'
+  end
 
-    expect(page).to have_content 'You will receive an email with instructions
-                                  on how to reset your password in a few
-                                  minutes.'
-    last_email.to.should include(user.email)
+  context 'a user lost its password' do
+    let(:user) { build(:user) }
+
+    scenario 'should send password reset instructions' do
+      expect(page).to have_content 'You will receive an email with instructions
+                                    on how to reset your password in a few
+                                    minutes.'
+      expect(last_email.to).to eq([user.email])
+    end
   end
 end

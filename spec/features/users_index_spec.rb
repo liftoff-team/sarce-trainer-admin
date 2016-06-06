@@ -1,24 +1,27 @@
 require 'rails_helper'
 
-feature 'Users index' do
-  let(:user) { build(:user) }
-  let(:features) { FeaturesSpecHelper.new }
-  let(:admin) { build(:admin) }
-
-  scenario 'As a non-admin user, I cannot access the index' do
-    features.sign_in(user)
-
+RSpec.feature 'Users index' do
+  background do
+    sign_in_user(user)
     visit '/users'
-    expect(page).to have_content "You're not allowed to access
-                                  this area: get out!"
-    expect(page.current_path).to eq root_path
   end
 
-  scenario 'As an admin user, I can access the index' do
-    features.sign_in(admin)
+  context 'a non-admin user wants to access the index' do
+    let(:user) { build(:user) }
 
-    visit '/users'
-    expect(page).to have_content 'Users List'
-    expect(page.current_path).to eq users_path
+    scenario 'should forbid the access to the users list' do
+      expect(page).to have_content "You're not allowed to access
+                                    this area: get out!"
+      expect(page.current_path).to eq root_path
+    end
+  end
+
+  context 'an admin user wants to access the index' do
+    let(:user) { build(:user, :admin) }
+
+    scenario 'should allow access to the users list' do
+      expect(page).to have_content 'Users List'
+      expect(page.current_path).to eq users_path
+    end
   end
 end
