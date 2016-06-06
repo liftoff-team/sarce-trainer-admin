@@ -1,4 +1,4 @@
-module Features
+module FeaturesHelpers
   include Capybara::DSL
 
   def sign_in_user(user)
