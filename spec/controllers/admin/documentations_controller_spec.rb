@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Admin::DocumentationsController do
-  login_admin
+  before(:each) { login_admin }
 
   describe 'GET index' do
     it 'returns http success' do

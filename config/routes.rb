@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :users, only: %i(show index)
 
   namespace :admin do
-    resources :questions, :documentations, :daily_questions
+    resources :questions
+    resources :documentations
+    resources :daily_questions
   end
 end
