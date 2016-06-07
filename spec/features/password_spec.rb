@@ -16,7 +16,7 @@ RSpec.feature 'Password reset' do
 
     scenario 'should send password reset instructions' do
       expect(page).to have_content 'Vous allez recevoir sous quelques minutes un
-                                    courriel vous indiquant comment réinitialiser
+                                    email vous indiquant comment réinitialiser
                                     votre mot de passe'
       expect(last_email.to).to eq([user.email])
     end
