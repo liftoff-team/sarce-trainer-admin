@@ -1,1 +1,25 @@
-= @question.body
+%h1
+  Question numéro
+  = @question.id
+%h3
+  = @question.body
+%div
+  How many time the question was answered :
+  = @question.answer_counter
+%div
+  The percentage of correct answer :
+  = @presenter.correct_ratio
+%div
+  The ratio like/dislike of the question :
+  = @presenter.like_ratio
+- unless @question.answer_counter == 0
+  %table
+    %tr
+      %th User name
+      %th Correct ?
+      %th Answers given
+    - @presenter.last_answers(10).each do |answer|
+      %tr
+        %td= answer.user_name
+        %td= answer.is_correct
+        %td= answer.answers
