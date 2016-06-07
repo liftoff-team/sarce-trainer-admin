@@ -1,9 +1,12 @@
 language: ruby
 rvm:
-  - 2.2.5
+- 2.2.5
 env:
-  - RAILS_ENV=test
+- RAILS_ENV=test
 script:
-  - bundle exec rake db:create
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec
+- bundle exec rake db:create
+- bundle exec rake db:test:prepare
+- bundle exec rspec
+notifications:
+  slack:
+    secure: uI0GqrfQh14QPz/dR6MtpOH6sTchNbcA3M2TuUdJp0jCbfEjF2iVJfn3DEKHCpiIChYgMdDYYy1wRHVr9Y6VBeIWpSe67FJ+cH3IMkHx20Gem9Xc6wxgh48WTreM7x+Ulsi+EjKupR6OVim0lynnShrYYF1cYD/4kcJSAsinpOtoTeAAegCyTQ/fRUgCt42OVKDh2O2EUh30XB9bkGHGE+t65E4WiQz9GSUDxLUpcLxyspWGD7gmMOIst+fUx1Q/DFBYIJmJ5hlpjv0V/gxJKa4gPdwvvV0OY0fnZwfEe5lahBcub6KD7KklrnRO+PRRELofE0ne9135BaPd28P2q+pCWE+tmOEr5GL7RsCu7/Bam04kP76xVY3YxFtO1NSXilw3SqJyjjdbEVC8Ot6OD1koseXNUXmfcF45Axqofm32U6EgDXm03s+J2r78dxUEHZ8fXGpA1RPeaQbOIHv9hNdX24hlX0/y0H0EQwk0kN15AYG+nluJL36SW9tNdw2w6OXw19hRPHNigP7fitfDenf+j62U+rvXLQCyv1xl55enTY9mYvocp4rhQLh7plH54fZ4rrb8iIGxjabJX64id7NxNx2qsERE83IezeOZPKaCXbDlsFWvsLZtoPZMzPcXlBojftRYX+4WIPeM1WjnLc2kht/Ak6GtNZkLSCqhHp8=
