@@ -14,4 +14,8 @@
 class GivenAnswer < ApplicationRecord
   belongs_to :question
   validates :question_id, :user_id, :answers, presence: true
+
+  def user_name
+    User.find(user_id).full_name
+  end
 end

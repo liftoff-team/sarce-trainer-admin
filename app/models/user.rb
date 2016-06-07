@@ -34,4 +34,8 @@ class User < ApplicationRecord
          :confirmable
 
   validates :first_name, :last_name, :cis, :rank, presence: true
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

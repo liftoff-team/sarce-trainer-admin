@@ -40,4 +40,22 @@ RSpec.describe Question do
   describe 'attributes' do
     it { expect(question.answers).to include(*question.correct_answers) }
   end
+
+  describe 'public instance methods' do
+    context 'responds to its methods' do
+      it { expect(question).to respond_to(:correct_count) }
+      it { expect(question).to respond_to(:correct_ratio) }
+      it { expect(question).to respond_to(:total_rates) }
+      it { expect(question).to respond_to(:like_ratio) }
+    end
+
+    context 'executes methods correctly' do
+      context 'self.correct_ratio' do
+        it { expect(question.correct_ratio.nan?).to be_falsy }
+      end
+      context 'self.like_ratio' do
+        it { expect(question.like_ratio.nan?).to be_falsy }
+      end
+    end
+  end
 end
