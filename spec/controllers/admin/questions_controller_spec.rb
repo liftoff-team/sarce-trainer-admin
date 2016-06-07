@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe HomeController do
+RSpec.describe Admin::QuestionsController do
+  before(:each) { login_admin }
+
   describe 'GET index' do
     it 'returns http success' do
       get :index

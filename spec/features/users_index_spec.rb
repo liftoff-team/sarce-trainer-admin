@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Users index' do
   background do
     sign_in_user(user)
-    visit '/users'
+    visit '/admin/users'
   end
 
   context 'a non-admin user wants to access the index' do
@@ -21,7 +21,7 @@ RSpec.feature 'Users index' do
 
     scenario 'should allow access to the users list' do
       expect(page).to have_content 'Users List'
-      expect(page.current_path).to eq users_path
+      expect(page.current_path).to eq admin_users_path
     end
   end
 end
