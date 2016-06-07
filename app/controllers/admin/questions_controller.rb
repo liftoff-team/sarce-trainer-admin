@@ -1,5 +1,3 @@
-require_relative '../../presenters/question_presenter'
-
 class Admin::QuestionsController < AdminController
   before_action :assign_question, only: %i(show edit update destroy)
 

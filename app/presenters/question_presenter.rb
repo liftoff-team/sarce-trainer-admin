@@ -7,11 +7,15 @@ class QuestionPresenter
     GivenAnswer.where(question_id: @question.id).last(number)
   end
 
-  def correct_ratio
+  def user_name(answer)
+    User.find(answer.user_id).full_name
+  end
+
+  def present_correct_ratio
     "#{(@question.correct_ratio * 100).to_i} %"
   end
 
-  def like_ratio
+  def present_like_ratio
     "#{(@question.like_ratio * 100).to_i} %"
   end
 end

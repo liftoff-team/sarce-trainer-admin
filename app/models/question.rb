@@ -22,7 +22,7 @@ class Question < ApplicationRecord
              :negative_rates, presence: true
 
   def correct_count
-    GivenAnswer.where(question_id: id).where(is_correct: true).count
+    QuestionService.new(self).find_correct_count
   end
 
   def correct_ratio
