@@ -2,16 +2,16 @@
   %p.alert.alert-success{:role => 'alert'}= notice
 - unless alert.nil?
   %p.alert.alert-danger.alert-dismissible{:role => 'alert'}= alert
+
 %ul.nav.navbar-nav.nav-pills.light.bg-faded.navbar-fixed-top
   - if user_signed_in?
     Bienvenue #{current_user.first_name}
     \#{current_user.last_name}
     %br/
-    %li.nav-item= link_to 'Voir mon profil', my_profile_path
-
-    %li.nav-item= link_to 'Déconnexion', destroy_user_session_path, method: :delete
+    %li.nav-item= link_to "#{current_user.first_name} #{current_user.last_name}", my_profile_path, class: 'navbar-brand'
+    %li.nav-item= link_to 'Déconnexion', destroy_user_session_path, method: :delete, class: 'navbar-brand'
     - if current_user.is_admin?
-      %li.nav-item= link_to 'Voir la liste des utilisateurs', admin_users_path
+      %li.nav-item= link_to 'Voir la liste des utilisateurs', admin_users_path, class: 'navbar-brand'
   - else
     %li.nav-item= link_to 'Register', new_user_registration_path, class: 'navbar-brand'
     %li.nav-item= link_to 'Sign in', new_user_session_path, class: 'navbar-brand'
