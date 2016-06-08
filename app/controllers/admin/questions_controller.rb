@@ -6,6 +6,7 @@ class Admin::QuestionsController < AdminController
   end
 
   def show
+    @presenter = QuestionPresenter.new(@question)
   end
 
   def new
