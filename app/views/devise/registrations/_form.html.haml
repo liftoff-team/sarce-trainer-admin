@@ -2,21 +2,21 @@
 .field
   = f.label :first_name
   %br/
-  = f.text_field :first_name, autofocus: true
+  = f.text_field :first_name, class: 'form-control' , autofocus: true
 .field
   = f.label :last_name
   %br/
-  = f.text_field :last_name
+  = f.text_field :last_name, class: 'form-control'
 .field
   = f.label :cis
   %br/
-  = f.text_field :cis
+  = f.text_field :cis, class: 'form-control'
 .field
   = f.label :rang
   %br/
-  = f.select(:rank,                                    |
-    @ranks.map { |key, value| [ value[:name], key ] }) |
+  = f.select(:rank,
+    @ranks.map { |key, value| [ value[:name], key ] }, {}, {class: 'form form-group form-control'})
 .field
   = f.label :email
   %br/
-  = f.email_field :email, autofocus: true
+  = f.email_field :email, class: 'form-control', autofocus: true
