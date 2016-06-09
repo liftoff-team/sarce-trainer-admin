@@ -3,7 +3,7 @@
   = devise_error_messages!
   = f.hidden_field :reset_password_token
   .field
-    = f.label :password, "New password"
+    = f.label :password, "Nouveau mot de passe"
     %br/
     - if @minimum_password_length
       %em
@@ -15,5 +15,5 @@
     %br/
     = f.password_field :password_confirmation, autocomplete: "off"
   .actions
-    = f.submit "Change my password"
+    = f.submit "Changer le mot de passe"
 = render "devise/shared/links"

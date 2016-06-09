@@ -1,17 +1,14 @@
+
 %p.notice= notice
 %p.alert= alert
 #user_nav
   - if user_signed_in?
-    Signed in as #{current_user.first_name}
+    Bienvenue #{current_user.first_name}
     \#{current_user.last_name}
     %br/
-    = link_to 'My profile', my_profile_path
-    or
-    #{link_to 'Sign out', destroy_user_session_path, method: :delete}
+    = link_to 'Voir mon profil', my_profile_path
+    ou
+    #{link_to 'Déconnexion', destroy_user_session_path, method: :delete}
     - if current_user.is_admin?
-      or
-      = link_to 'Users list', admin_users_path
-  - else
-    = link_to 'Register', new_user_registration_path
-    or
-    \#{link_to 'Sign in', new_user_session_path}
+      ou
+      = link_to 'Voir la liste des utilisateurs', admin_users_path

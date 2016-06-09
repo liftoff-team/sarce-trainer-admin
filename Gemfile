@@ -5,6 +5,7 @@ gem 'puma',                   '~> 3.0'            # Use Puma as the app server
 gem 'pg',                     '~> 0.18'           # Use postgresql as the database for Active Record
 
 gem 'devise',                 '~> 4.1'            # Authentication solution
+gem 'devise-i18n'
 gem 'haml-rails',             '~> 0.9'            # Templating engine for HTML.
 gem 'bootstrap',              '~> 4.0.0.alpha3'   # Bootstrap 4 ruby gem for Ruby on Rails
 
