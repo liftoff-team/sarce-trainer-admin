@@ -1,22 +1,17 @@
 = devise_error_messages!
 .field
-  = f.label :first_name
-  %br/
+  %h4= f.label :first_name, class: 'label label-info'
   = f.text_field :first_name, class: 'form-control' , autofocus: true
 .field
-  = f.label :last_name
-  %br/
+  %h4= f.label :last_name, class: 'label label-info'
   = f.text_field :last_name, class: 'form-control'
 .field
-  = f.label :cis
-  %br/
+  %h4= f.label :cis, class: 'label label-info'
   = f.text_field :cis, class: 'form-control'
 .field
-  = f.label :rang
-  %br/
+  %h4= f.label :rank, class: 'label label-info'
   = f.select(:rank,
     @ranks.map { |key, value| [ value[:name], key ] }, {}, {class: 'form form-group form-control'})
 .field
-  = f.label :email
-  %br/
+  %h4= f.label :email, class: 'label label-info'
   = f.email_field :email, class: 'form-control', autofocus: true

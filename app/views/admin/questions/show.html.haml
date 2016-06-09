@@ -1,20 +1,20 @@
-%h1
-  Question numéro
-  = @question.id
-%h3
-  = @question.body
-%div
-  How many time the question was answered :
-  = @question.answer_counter
-%div
-  The percentage of correct answer :
-  = @presenter.present_correct_ratio
-%div
-  The ratio like/dislike of the question :
-  = @presenter.present_like_ratio
-- unless @question.answer_counter == 0
-  %table
-    %tr
+.panel.panel-info
+  .panel-heading
+    %h3.panel-title
+      = @question.body
+  .panel-body
+    .profile-padding
+      How many time the question was answered :
+      = @question.answer_counter
+    .profile-padding
+      The percentage of correct answer :
+      = @presenter.present_correct_ratio
+    .profile-padding
+      The ratio like/dislike of the question :
+      = @presenter.present_like_ratio
+%table.table.table-striped
+  %thead
+    %tr.info
       %th User name
       %th Correct ?
       %th Answers given
@@ -22,4 +22,4 @@
       %tr
         %td= @presenter.user_name(answer)
         %td= answer.is_correct
-        %td= answer.answers
+        %td= @presenter.present_answers(answer)

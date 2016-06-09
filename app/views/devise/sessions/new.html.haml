@@ -1,17 +1,15 @@
-%h2 Se connecter à Sarce Trainer
+%h2.text-primary Se connecter à Sarce Trainer
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
+    %h4= f.label :email, class: 'label label-info'
+    = f.email_field :email, class: 'form-control', autofocus: true
   .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
+    %h4= f.label :password, class: 'label label-info'
+    = f.password_field :password, class: 'form-control', autocomplete: 'off'
   - if devise_mapping.rememberable?
     .field
       = f.check_box :remember_me
-      = f.label :remember_me
+      = f.label :remember_me, class: 'label label-default'
   .actions
-    = f.submit "Connexion", class: 'btn btn-primary btn-lg'
+    = f.submit 'Connexion', class: 'btn btn-primary'
 = render "devise/shared/links"

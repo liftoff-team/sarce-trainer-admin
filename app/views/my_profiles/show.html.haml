@@ -1,15 +1,16 @@
-%h1 My Profile
-%h3
-  = @me.first_name
-  = @me.last_name
-%p
-  %strong Email:
-  = @me.email
-%p
-  %strong CIS:
-  = @me.cis
-%p
-  %strong Rank:
-  = @rank[:name]
-%div= image_tag(@rank[:image_path])
-= link_to 'Modifier le profil', edit_user_registration_path
+.panel.panel-info
+  .panel-heading
+    %h3.panel-title
+      Profil
+  .panel-body
+    .profile-padding
+      %strong Email:
+      = @me.email
+    .profile-padding
+      %strong CIS:
+      = @me.cis
+    .profile-padding
+      %strong Rank:
+      = @rank[:name]
+    %div= image_tag(@rank[:image_path], class: 'thumbnail')
+= link_to 'Modifier le profil', edit_user_registration_path, class: 'btn btn-primary'

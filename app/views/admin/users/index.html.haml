@@ -1,13 +1,13 @@
-%h1 Users List
-%hr/
-%table
-  %tr
-    %th name
-    %th email
-    %th CIS
-    %th Rank
-    %th admin
-    %th See Profile
+%h2.text-primary Users List
+%table.table.table-striped
+  %thead
+    %tr.info
+      %th Name
+      %th Email
+      %th CIS
+      %th Rank
+      %th Admin
+      %th Profile
 
   - @users.each do |user|
     %tr
@@ -16,4 +16,6 @@
       %td= user.cis
       %td= user.rank
       %td= user.is_admin
-      %td= link_to 'Details', admin_user_path(user)
+      %td
+        = link_to admin_user_path(user) do
+          %span.glyphicon.glyphicon-eye-open

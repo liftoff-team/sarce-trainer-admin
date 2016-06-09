@@ -1,14 +1,16 @@
-%h1 User Profile
-%h3
-  = @user.first_name
-  = @user.last_name
-%p
-  %strong Email:
-  = @user.email
-%p
-  %strong CIS:
-  = @user.cis
-%p
-  %strong Rang:
-  = @rank[:name]
-%div= image_tag(@rank[:image_path])
+.panel.panel-info
+  .panel-heading
+    %h3.panel-title
+      = @user.first_name
+      = @user.last_name
+  .panel-body
+    .profile-padding
+      %strong Email:
+      = @user.email
+    .profile-padding
+      %strong CIS:
+      = @user.cis
+    .profile-padding
+      %strong Rank:
+      = @rank[:name]
+    %div= image_tag(@rank[:image_path], class: 'thumbnail')

@@ -3,15 +3,13 @@
 - unless alert.nil?
   %p.alert.alert-danger.alert-dismissible{:role => 'alert'}= alert
 
-%ul.nav.navbar-nav.nav-pills.light.bg-faded.navbar-fixed-top
+%ul.nav.nav-pills.navbar-fixed-top.well
+  %li.active{:role=> 'presentation'}= link_to 'Home', root_path
   - if user_signed_in?
-    Bienvenue #{current_user.first_name}
-    \#{current_user.last_name}
-    %br/
-    %li.nav-item= link_to "#{current_user.first_name} #{current_user.last_name}", my_profile_path, class: 'navbar-brand'
-    %li.nav-item= link_to 'Déconnexion', destroy_user_session_path, method: :delete, class: 'navbar-brand'
+    %li{:role=> 'presentation'}= link_to "#{current_user.first_name} #{current_user.last_name}", my_profile_path
+    %li{:role=> 'presentation'}= link_to 'Déconnexion', destroy_user_session_path, method: :delete
     - if current_user.is_admin?
-      %li.nav-item= link_to 'Voir la liste des utilisateurs', admin_users_path, class: 'navbar-brand'
+      %li{:role=> 'presentation'}= link_to 'Voir la liste des utilisateurs', admin_users_path
   - else
-    %li.nav-item= link_to 'Register', new_user_registration_path, class: 'navbar-brand'
-    %li.nav-item= link_to 'Sign in', new_user_session_path, class: 'navbar-brand'
+    %li{:role=> 'presentation'}= link_to 'Register', new_user_registration_path
+    %li{:role=> 'presentation'}= link_to 'Sign in', new_user_session_path
