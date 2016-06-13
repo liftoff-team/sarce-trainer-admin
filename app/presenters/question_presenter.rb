@@ -7,8 +7,8 @@ class QuestionPresenter
     GivenAnswer.where(question_id: @question.id).last(number)
   end
 
-  def user_name(answer)
-    User.find(answer.user_id).full_name
+  def user_name(given_answer)
+    User.find(given_answer.user_id).full_name
   end
 
   def present_correct_ratio
@@ -19,7 +19,11 @@ class QuestionPresenter
     "#{(@question.like_ratio * 100).to_i} %"
   end
 
-  def present_answers(answer)
-    answer.answers.join(", ")
+  def present_answers(given_answer)
+    given_answer.answers.join(", ")
+  end
+
+  def present_is_correct(given_answer)
+    given_answer.is_correct ? 'Vrai' : 'Faux'
   end
 end

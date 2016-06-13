@@ -4,22 +4,19 @@
       = @question.body
   .panel-body
     .profile-padding
-      Combien de fois la question a été repondue :
-      = @question.answer_counter
+      • La question a été repondue #{@question.answer_counter} fois
     .profile-padding
-      Le pourcentage de réponse correct :
-      = @presenter.present_correct_ratio
+      • Il y a eu #{@presenter.present_correct_ratio} de bonnes réponses
     .profile-padding
-      Le ratio aime/n'aime pas de la question :
-      = @presenter.present_like_ratio
+      • #{@presenter.present_like_ratio} d'utilisateurs ont aimé la question
 %table.table.table-striped
   %thead
     %tr.info
       %th Utilisateur
       %th Correct ?
       %th Réponses données
-    - @presenter.last_answers(10).each do |answer|
+    - @presenter.last_answers(10).reverse.each do |given_answer|
       %tr
-        %td= @presenter.user_name(answer)
-        %td= answer.is_correct
-        %td= @presenter.present_answers(answer)
+        %td= @presenter.user_name(given_answer)
+        %td= @presenter.present_is_correct(given_answer)
+        %td= @presenter.present_answers(given_answer)
