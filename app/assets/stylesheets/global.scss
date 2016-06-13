@@ -1,19 +1,24 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400);
 body {
    padding-top: 10rem;
    font-family: 'Roboto', sans-serif;
  }
 
- .navbar-fixed-top {
-   padding-left: 1.875rem;
-   padding-top: 1.875rem;
+#error_explanation {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
  }
 
- .btn.btn-primary {
+.navbar-fixed-top {
+ padding-left: 1.875rem;
+ padding-top: 1.875rem;
+ }
+
+.btn.btn-primary {
    margin-top: 1rem;
    margin-bottom: 0.5rem;
  }
 
- .profile-padding {
+.profile-padding {
    padding-bottom: 0.5rem;
  }

@@ -7,8 +7,7 @@ RSpec.feature 'Sign in' do
     let(:user) { build(:user) }
 
     scenario 'should sign in the user with valid credentials' do
-      expect(page).to have_content "Connecté(e) avec succès. Bienvenue
-                                    #{user.first_name} #{user.last_name}"
+      expect(page).to have_content 'Connecté(e) avec succès.'
     end
   end
 end

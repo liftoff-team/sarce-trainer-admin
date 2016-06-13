@@ -6,7 +6,7 @@
       = f.label :password
       - if @minimum_password_length
         %span.label.label-danger
-          (#{@minimum_password_length} characters minimum)
+          (minimum #{@minimum_password_length} caractères)
     = f.password_field :password, class: 'form-control', autocomplete: 'off'
   .field
     %h4= f.label :password_confirmation

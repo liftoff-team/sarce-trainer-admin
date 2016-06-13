@@ -3,18 +3,18 @@
   = render partial:  'form', locals: { f: f }
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
+      En attente de confirmation pour: #{resource.unconfirmed_email}
   .field
     %h4= f.label :password
-    %i (leave blank if you don't want to change it)
     = f.password_field :password, class: 'form-control', autocomplete: 'off'
+    %i (Laisser vide si vous ne souhaitez rien changer)
   .field
     %h4= f.label :password_confirmation
     = f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off'
   .field
     %h4= f.label :current_password
-    %i (we need your current password to confirm your changes)
     = f.password_field :current_password, class: 'form-control', autocomplete: 'off'
+    %i (Nous avons besoin de votre mot de passe actuel pour valider les changements)
   .actions
     = f.submit 'Mettre à jour', class: 'btn btn-primary'
 %p

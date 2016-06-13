@@ -4,20 +4,20 @@
       = @question.body
   .panel-body
     .profile-padding
-      How many time the question was answered :
+      Combien de fois la question a été repondue :
       = @question.answer_counter
     .profile-padding
-      The percentage of correct answer :
+      Le pourcentage de réponse correct :
       = @presenter.present_correct_ratio
     .profile-padding
-      The ratio like/dislike of the question :
+      Le ratio aime/n'aime pas de la question :
       = @presenter.present_like_ratio
 %table.table.table-striped
   %thead
     %tr.info
-      %th User name
+      %th Utilisateur
       %th Correct ?
-      %th Answers given
+      %th Réponses données
     - @presenter.last_answers(10).each do |answer|
       %tr
         %td= @presenter.user_name(answer)

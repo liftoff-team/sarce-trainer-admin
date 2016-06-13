@@ -20,7 +20,7 @@ RSpec.feature 'Users index' do
     let(:user) { build(:user, :admin) }
 
     scenario 'should allow access to the users list' do
-      expect(page).to have_content 'Users List'
+      expect(page).to have_content 'Liste des utilisateurs'
       expect(page.current_path).to eq admin_users_path
     end
   end

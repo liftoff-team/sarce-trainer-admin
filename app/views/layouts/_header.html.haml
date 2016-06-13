@@ -4,12 +4,12 @@
   %p.alert.alert-danger.alert-dismissible{:role => 'alert'}= alert
 
 %ul.nav.nav-pills.navbar-fixed-top.well
-  %li.active{:role=> 'presentation'}= link_to 'Home', root_path
+  %li.active{:role=> 'presentation'}= link_to 'Accueil', root_path
   - if user_signed_in?
     %li{:role=> 'presentation'}= link_to "#{current_user.first_name} #{current_user.last_name}", my_profile_path
     %li{:role=> 'presentation'}= link_to 'Déconnexion', destroy_user_session_path, method: :delete
     - if current_user.is_admin?
       %li{:role=> 'presentation'}= link_to 'Voir la liste des utilisateurs', admin_users_path
   - else
-    %li{:role=> 'presentation'}= link_to 'Register', new_user_registration_path
-    %li{:role=> 'presentation'}= link_to 'Sign in', new_user_session_path
+    %li{:role=> 'presentation'}= link_to 'Inscription', new_user_registration_path
+    %li{:role=> 'presentation'}= link_to 'Connexion', new_user_session_path
