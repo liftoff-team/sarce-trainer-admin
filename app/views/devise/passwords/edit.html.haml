@@ -1,15 +1,15 @@
-%h2.text-primary Change your password
+%h2.text-center Change your password
 = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
   = f.hidden_field :reset_password_token
   .field
-    = f.label :password, "Nouveau mot de passe", class: 'label label-info'
+    %h4= f.label :password, 'Nouveau mot de passe'
     - if @minimum_password_length
       %span.label.label-danger
         (#{@minimum_password_length} characters minimum)
       = f.password_field :password, class: 'form-control',autofocus: true, autocomplete: 'off'
   .field
-    %h4= f.label :password_confirmation, 'Confirm new password', class: 'label label-info'
+    %h4= f.label :password_confirmation, 'Confirm new password'
     = f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off'
   .actions
     = f.submit 'Changer le mot de passe', class: 'btn btn-primary'

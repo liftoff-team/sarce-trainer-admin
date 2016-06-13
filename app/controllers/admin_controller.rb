@@ -5,7 +5,7 @@ class AdminController < ApplicationController
 
   def is_admin?
     unless current_user && current_user.is_admin?
-      redirect_to root_path, notice: "You're not allowed to access
+      redirect_to root_path, alert: "You're not allowed to access
                                       this area: get out!"
     end
   end
