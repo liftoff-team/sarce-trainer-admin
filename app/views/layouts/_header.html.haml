@@ -1,14 +1,15 @@
+- unless notice.nil?
+  %p.alert.alert-success{:role => 'alert'}= notice
+- unless alert.nil?
+  %p.alert.alert-danger.alert-dismissible{:role => 'alert'}= alert
 
-%p.notice= notice
-%p.alert= alert
-#user_nav
+%ul.nav.nav-pills.navbar-fixed-top.well
+  %li.active{:role=> 'presentation'}= link_to 'Accueil', root_path
   - if user_signed_in?
-    Bienvenue #{current_user.first_name}
-    \#{current_user.last_name}
-    %br/
-    = link_to 'Voir mon profil', my_profile_path
-    ou
-    #{link_to 'Déconnexion', destroy_user_session_path, method: :delete}
+    %li{:role=> 'presentation'}= link_to "#{current_user.first_name} #{current_user.last_name}", my_profile_path
+    %li{:role=> 'presentation'}= link_to 'Déconnexion', destroy_user_session_path, method: :delete
     - if current_user.is_admin?
-      ou
-      = link_to 'Voir la liste des utilisateurs', admin_users_path
+      %li{:role=> 'presentation'}= link_to 'Voir la liste des utilisateurs', admin_users_path
+  - else
+    %li{:role=> 'presentation'}= link_to 'Inscription', new_user_registration_path
+    %li{:role=> 'presentation'}= link_to 'Connexion', new_user_session_path

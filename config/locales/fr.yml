@@ -5,9 +5,17 @@ fr:
         current_password: Mot de passe actuel
         first_name: Prénom
         last_name: Nom
+        cis: CIS
+        rank: Rang
         email: Email
         password: Mot de passe
         remember_me: Se souvenir de moi
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: ne peut être vide
     models:
       user: Utilisateur
   devise:
@@ -115,5 +123,5 @@ fr:
       not_found: n’a pas été trouvé(e)
       not_locked: n’était pas verrouillé(e)
       not_saved:
-        one: 'une erreur a empêché ce (cet ou cette) %{resource} d’être enregistré(e) :'
-        other: "%{count} erreurs ont empêché ce (cet ou cette) %{resource} d’être enregistré(e) :"
+        one: 'Il y a une erreur :'
+        other: 'Il y a %{count} erreurs :'

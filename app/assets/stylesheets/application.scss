@@ -1,1 +1,6 @@
+ @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "global";
+
+// import font from Google
+@import url(https://fonts.googleapis.com/css?family=Roboto:400);

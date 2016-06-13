@@ -1,11 +1,15 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    %meta{:name => 'viewport', :content => 'width=device-width; initial-scale=1.0; maximum-scale=1.0;'}
     %title SarceTrainerAdmin
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render "layouts/header"
-    = yield
+    .container-fluid
+      = render 'layouts/header'
+      .container-form.col-lg-4.col-md-6.col-sm-8.col-xs-12
+        = yield

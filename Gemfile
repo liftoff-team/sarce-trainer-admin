@@ -7,7 +7,7 @@ gem 'pg',                     '~> 0.18'           # Use postgresql as the databa
 gem 'devise',                 '~> 4.1'            # Authentication solution
 gem 'devise-i18n'
 gem 'haml-rails',             '~> 0.9'            # Templating engine for HTML.
-gem 'bootstrap',              '~> 4.0.0.alpha3'   # Bootstrap 4 ruby gem for Ruby on Rails
+gem 'bootstrap-sass',         '~> 3.3.6'          # Bootstrap 4 ruby gem for Ruby on Rails
 
 gem 'sass-rails',             '~> 5.0'            # Use SCSS for stylesheets
 gem 'uglifier',               '>= 1.3'            # Use Uglifier as compressor for JavaScript assets

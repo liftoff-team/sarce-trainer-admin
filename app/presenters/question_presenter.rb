@@ -18,4 +18,8 @@ class QuestionPresenter
   def present_like_ratio
     "#{(@question.like_ratio * 100).to_i} %"
   end
+
+  def present_answers(answer)
+    answer.answers.join(", ")
+  end
 end
