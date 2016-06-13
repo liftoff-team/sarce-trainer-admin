@@ -1,0 +1,23 @@
+%h2.text-center Nouvelle Question
+= @question.errors.full_messages.to_sentence if @question.errors.any?
+= form_for @question, url: {action: "create"} do |f|
+  .field
+    %h4= f.label 'Intitulé'
+    = f.text_field :body, class: 'form-control' , autofocus: true
+  .field
+    %h4= f.label 'Propositions'
+    <input name="question[answers][]" type="text"/>
+    <input name="question[answers][]" type="text"/>
+    <input name="question[answers][]" type="text"/>
+  .field
+    %h4= f.label 'Réponses'
+    <input name="question[correct_answers][]" type="text"/>
+    <input name="question[correct_answers][]" type="text"/>
+  .field
+    %h4= f.label 'Explication'
+    = f.text_field :explanation, class: 'form-control'
+  .field
+    %h4= f.label 'Documentation'
+    = f.number_field :documentation_id, class: 'form-control'
+  .actions
+    = f.submit "Valider", class: 'btn btn-primary'
