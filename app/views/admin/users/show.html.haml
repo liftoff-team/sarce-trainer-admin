@@ -1,0 +1,16 @@
+.panel.panel-info
+  .panel-heading
+    %h3.panel-title
+      = @user.first_name
+      = @user.last_name
+  .panel-body
+    .profile-padding
+      %strong Email:
+      = @user.email
+    .profile-padding
+      %strong CIS:
+      = @user.cis
+    .profile-padding
+      %strong Rang:
+      = @rank[:name]
+    %div= image_tag(@rank[:image_path], class: 'thumbnail')

@@ -23,6 +23,7 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  is_admin               :boolean          default("false")
 #
 
 class User < ApplicationRecord
@@ -33,4 +34,8 @@ class User < ApplicationRecord
          :confirmable
 
   validates :first_name, :last_name, :cis, :rank, presence: true
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

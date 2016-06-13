@@ -1,0 +1,22 @@
+%h2.text-center Modifier mon profil
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = render partial:  'form', locals: { f: f }
+  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    %div
+      En attente de confirmation pour: #{resource.unconfirmed_email}
+  .field
+    %h4= f.label :password
+    = f.password_field :password, class: 'form-control', autocomplete: 'off'
+    %i (Laisser vide si vous ne souhaitez rien changer)
+  .field
+    %h4= f.label :password_confirmation
+    = f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off'
+  .field
+    %h4= f.label :current_password
+    = f.password_field :current_password, class: 'form-control', autocomplete: 'off'
+    %i (Nous avons besoin de votre mot de passe actuel pour valider les changements)
+  .actions
+    = f.submit 'Mettre à jour', class: 'btn btn-primary'
+%p
+  #{button_to 'Supprimer mon compte', registration_path(resource_name), class: 'btn btn-danger', data: { confirm: 'Êtes-vous sûr ?' }, method: :delete}
+= link_to 'Retour', :back

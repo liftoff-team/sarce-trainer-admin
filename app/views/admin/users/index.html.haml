@@ -1,0 +1,21 @@
+%h2.text-center Liste des utilisateurs
+%table.table.table-striped
+  %thead
+    %tr.info
+      %th Nom
+      %th Email
+      %th CIS
+      %th Rang
+      %th Admin
+      %th Profil
+
+  - @users.each do |user|
+    %tr
+      %td= "#{user.first_name } #{user.last_name }"
+      %td= user.email
+      %td= user.cis
+      %td= user.rank
+      %td= user.is_admin
+      %td
+        = link_to admin_user_path(user) do
+          %span.glyphicon.glyphicon-eye-open

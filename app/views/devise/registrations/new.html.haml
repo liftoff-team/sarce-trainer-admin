@@ -1,0 +1,16 @@
+%h2.text-center Inscription
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render partial: 'form', locals: { f: f }
+  .field
+    %h4
+      = f.label :password
+      - if @minimum_password_length
+        %span.label.label-danger
+          (minimum #{@minimum_password_length} caractères)
+    = f.password_field :password, class: 'form-control', autocomplete: 'off'
+  .field
+    %h4= f.label :password_confirmation
+    = f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off'
+  .actions
+    = f.submit "S'inscrire", class: 'btn btn-primary'
+= render 'devise/shared/links'

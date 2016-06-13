@@ -1,0 +1,17 @@
+= devise_error_messages!
+.field
+  %h4= f.label :first_name
+  = f.text_field :first_name, class: 'form-control' , autofocus: true
+.field
+  %h4= f.label :last_name
+  = f.text_field :last_name, class: 'form-control'
+.field
+  %h4= f.label :cis
+  = f.text_field :cis, class: 'form-control'
+.field
+  %h4= f.label :rank
+  = f.select(:rank,
+    @ranks.map { |key, value| [ value[:name], key ] }, {}, {class: 'form form-group form-control'})
+.field
+  %h4= f.label :email
+  = f.email_field :email, class: 'form-control', autofocus: true

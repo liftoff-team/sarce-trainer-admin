@@ -1,18 +1,38 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'factory_girl'
+require 'faker'
+# require all factories
+Dir[Rails.root.join('spec/factories/*.rb')].each { |f| require f }
 
 def create_sarce_trainer_minimal_stack
   create_users
+  create_documentations
+  create_questions
+  create_given_answers
 end
 
 def create_users
   FactoryGirl.create_list(:user, 2)
-  puts "- 2 user created"
+  puts '- 2 users created'
+end
+
+def create_documentations
+  FactoryGirl.create_list(:documentation, 5)
+  puts '- 5 documentations created'
+end
+
+def create_questions
+  FactoryGirl.create_list(:question, 30)
+  puts '- 30 questions created'
+end
+
+def create_daily_questions
+  FactoryGirl.create_list(:daily_question, 30)
+  puts '- 30 daily questions created'
+end
+
+def create_given_answers
+  FactoryGirl.create_list(:given_answer, 100)
+  puts "- 100 given answers created"
 end
 
 create_sarce_trainer_minimal_stack
