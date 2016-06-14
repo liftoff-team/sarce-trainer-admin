@@ -1,5 +1,6 @@
 class Admin::QuestionsController < AdminController
   before_action :assign_question, only: %i(show edit update destroy)
+  before_action :assign_presenter, only: %i(show edit)
 
   def index
     @questions = Question.all
@@ -14,7 +15,6 @@ class Admin::QuestionsController < AdminController
 
   def create
     @question = Question.new(question_params)
-    @question.convert_correct_answers
     if @question.save
       redirect_to admin_question_path(@question.id),
                   notice: 'The question was added successfully!'
@@ -53,4 +53,8 @@ end
 
 def assign_question
   @question = Question.find(params[:id])
+end
+
+def assign_presenter
+  @presenter = QuestionPresenter.new(@question)
 end

@@ -21,6 +21,8 @@ class Question < ApplicationRecord
             :documentation_id, :answer_counter, :positive_rates,
             :negative_rates, presence: true
 
+  before_save :convert_correct_answers
+
   def correct_count
     QuestionService.new(self).find_correct_count
   end

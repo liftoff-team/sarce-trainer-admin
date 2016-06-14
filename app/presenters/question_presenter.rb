@@ -28,4 +28,8 @@ module QuestionPresenter
       question.answers.join(' ')
     end
   end
+
+  def answer_correct?(answer)
+    @question.correct_answers.include?(answer)
+  end
 end

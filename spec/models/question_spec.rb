@@ -60,7 +60,6 @@ RSpec.describe Question do
       context 'self.convert_correct_answers' do
         before do
           question.update(correct_answers: %w(1 3))
-          question.convert_correct_answers
         end
         it do
           expect(question.correct_answers).to eq([question.answers[1],
