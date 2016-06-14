@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Create question' do
+RSpec.feature 'New question' do
   background do
     sign_in_user(user)
 
@@ -11,7 +11,7 @@ RSpec.feature 'Create question' do
     check 'checkbox_1'
     fill_in 'text_2', with: 'maison'
     fill_in 'text_3', with: 'oiseau'
-    check 'checkbox_1'
+    check 'checkbox_3'
     fill_in 'text_4', with: 'ruby'
     fill_in 'Explication', with: 'documentation'
     fill_in 'Documentation', with: 1
@@ -20,7 +20,7 @@ RSpec.feature 'Create question' do
   end
 
   context 'an admin wants to create a new question' do
-    let(:user) { build(:user, :admin, email: 'pompier_new@exemple.com') }
+    let(:user) { build(:user, :admin) }
 
     scenario 'should create a new question with valid data' do
       expect(page).to have_selector 'p.alert.alert-success'
