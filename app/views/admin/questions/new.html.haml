@@ -3,21 +3,29 @@
 = form_for @question, url: {action: "create"} do |f|
   .field
     %h4= f.label 'Intitulé'
-    = f.text_field :body, class: 'form-control' , autofocus: true
+    = f.text_field :body, class: 'form-control', id: 'Intitulé', autofocus: true
   .field
-    %h4= f.label 'Propositions'
-    <input name="question[answers][]" type="text"/>
-    <input name="question[answers][]" type="text"/>
-    <input name="question[answers][]" type="text"/>
-  .field
-    %h4= f.label 'Réponses'
-    <input name="question[correct_answers][]" type="text"/>
-    <input name="question[correct_answers][]" type="text"/>
+    %h5
+      =f.label 'Réponse 1'
+      %input{id: 'checkbox_1', name: 'question[correct_answers][]', type: 'checkbox', value: 0}
+      %input{id: 'text_1', name: 'question[answers][]', type:'text'}
+    %h5
+      =f.label 'Réponse 2'
+      %input{id: 'checkbox_2', name: 'question[correct_answers][]', type: 'checkbox', value: 1}
+      %input{id: 'text_2', name: 'question[answers][]', type:'text'}
+    %h5
+      =f.label 'Réponse 3'
+      %input{id: 'checkbox_3', name: 'question[correct_answers][]', type: 'checkbox', value: 2}
+      %input{id: 'text_3', name: 'question[answers][]', type:'text'}
+    %h5
+      =f.label 'Réponse 4'
+      %input{id: 'checkbox_4', name: 'question[correct_answers][]', type: 'checkbox', value: 3}
+      %input{id: 'text_4', name: 'question[answers][]', type:'text'}
   .field
     %h4= f.label 'Explication'
-    = f.text_field :explanation, class: 'form-control'
+    = f.text_field :explanation, class: 'form-control', id: 'Explication'
   .field
     %h4= f.label 'Documentation'
-    = f.number_field :documentation_id, class: 'form-control'
+    = f.number_field :documentation_id, class: 'form-control', id: 'Documentation'
   .actions
-    = f.submit "Valider", class: 'btn btn-primary'
+    = f.submit 'Valider', class: 'btn btn-primary'

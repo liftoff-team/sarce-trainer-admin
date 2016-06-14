@@ -47,6 +47,7 @@ RSpec.describe Question do
       it { expect(question).to respond_to(:correct_ratio) }
       it { expect(question).to respond_to(:total_rates) }
       it { expect(question).to respond_to(:like_ratio) }
+      it { expect(question).to respond_to(:convert_correct_answers) }
     end
 
     context 'executes methods correctly' do
@@ -55,6 +56,16 @@ RSpec.describe Question do
       end
       context 'self.like_ratio' do
         it { expect(question.like_ratio.nan?).to be_falsy }
+      end
+      context 'self.convert_correct_answers' do
+        before do
+          question.update(correct_answers: %w(1 3))
+          question.convert_correct_answers
+        end
+        it do
+          expect(question.correct_answers).to eq([question.answers[1],
+                                                  question.answers[3]])
+        end
       end
     end
   end

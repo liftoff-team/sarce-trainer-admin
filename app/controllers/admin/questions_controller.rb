@@ -14,6 +14,7 @@ class Admin::QuestionsController < AdminController
 
   def create
     @question = Question.new(question_params)
+    @question.convert_correct_answers
     if @question.save
       redirect_to admin_question_path(@question.id),
                   notice: 'The question was added successfully!'
@@ -45,8 +46,8 @@ private
 
 def question_params
   params.require(:question).permit(
-    :body, :answers, :correct_answers, :explanation, :documentation_id,
-    :answer_counter, :positive_rates, :negative_rates
+    :body, { answers: [] }, { correct_answers: [] }, :explanation,
+    :documentation_id, :answer_counter, :positive_rates, :negative_rates
   )
 end
 
