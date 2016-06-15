@@ -1,1 +1,10 @@
-= @questions.map(&:body)
+%h2.text-center Liste des questions
+%table.table.table-striped
+  - @questions.each do |question|
+    %tr
+      %td= question.answer_counter
+      %td= question.body
+      %td
+        = link_to admin_question_path(question) do
+          %span.glyphicon.glyphicon-eye-open
+      %td{ style: 'width:40px' }= QuestionPresenter.present_like_ratio(question)
