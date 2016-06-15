@@ -19,11 +19,15 @@ class QuestionPresenter
     "#{(@question.like_ratio * 100).to_i} %"
   end
 
-  def present_answers(given_answer)
+  def present_given_answers(given_answer)
     given_answer.answers.join(", ")
   end
 
   def present_is_correct(given_answer)
     given_answer.is_correct ? 'Vrai' : 'Faux'
+  end
+
+  def present_answers
+    @question.answers.join(' ')
   end
 end
