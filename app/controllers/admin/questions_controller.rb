@@ -45,8 +45,8 @@ private
 
 def question_params
   params.require(:question).permit(
-    :body, :answers, :correct_answers, :explanation, :documentation_id,
-    :answer_counter, :positive_rates, :negative_rates
+    :body, { answers: [] }, { correct_answers: [] }, :explanation,
+    :documentation_id, :answer_counter, :positive_rates, :negative_rates
   )
 end
 

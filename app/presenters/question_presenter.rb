@@ -27,5 +27,9 @@ module QuestionPresenter
     def present_answers(question)
       question.answers.join(' ')
     end
+
+    def answer_correct?(question, index)
+      question.correct_answers.include?(question.answers[index])
+    end
   end
 end
