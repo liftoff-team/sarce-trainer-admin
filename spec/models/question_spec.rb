@@ -58,9 +58,8 @@ RSpec.describe Question do
         it { expect(question.like_ratio.nan?).to be_falsy }
       end
       context 'self.convert_correct_answers' do
-        before do
-          question.update(correct_answers: %w(1 3))
-        end
+        before { question.update(correct_answers: %w(1 3)) }
+
         it do
           expect(question.correct_answers).to eq([question.answers[1],
                                                   question.answers[3]])

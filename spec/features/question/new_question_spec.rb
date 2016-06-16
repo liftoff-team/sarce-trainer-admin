@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'New question' do
+  given(:user) { build(:user, :admin) }
+
   background do
     sign_in_user(user)
 
@@ -19,13 +21,9 @@ RSpec.feature 'New question' do
     click_button 'Valider'
   end
 
-  context 'an admin wants to create a new question' do
-    let(:user) { build(:user, :admin) }
-
-    scenario 'should create a new question with valid data' do
-      expect(page).to have_selector 'p.alert.alert-success'
-      expect(page).to have_content 'La question a été repondue 0 fois'
-      expect(page).to have_content '0 + 0?'
-    end
+  scenario 'should create a new question with valid data' do
+    expect(page).to have_selector 'p.alert.alert-success'
+    expect(page).to have_content 'La question a été repondue 0 fois'
+    expect(page).to have_content '0 + 0?'
   end
 end
