@@ -4,6 +4,10 @@
       = @question.body
   .panel-body
     .profile-padding
+      • Les réponses sont :
+      %span.unmark
+        = highlight(@presenter.present_answers, @question.correct_answers)
+    .profile-padding
       • La question a été repondue #{@question.answer_counter} fois
     .profile-padding
       • Il y a eu #{@presenter.present_correct_ratio} de bonnes réponses
@@ -19,4 +23,4 @@
       %tr
         %td= @presenter.user_name(given_answer)
         %td= @presenter.present_is_correct(given_answer)
-        %td= @presenter.present_answers(given_answer)
+        %td= @presenter.present_given_answers(given_answer)
