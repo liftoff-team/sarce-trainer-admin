@@ -6,7 +6,7 @@ RSpec.feature 'Edit question' do
   background do
     sign_in_user(user)
 
-    visit 'admin/questions/1/edit'
+    visit 'questions/1/edit'
 
     fill_in 'Intitulé', with: 'nouvelle question'
 
