@@ -6,21 +6,21 @@
     .profile-padding
       • Les réponses sont :
       %span.unmark
-        = highlight(@presenter.present_answers, @question.correct_answers)
+        = highlight(QuestionPresenter.present_answers(@question), @question.correct_answers)
     .profile-padding
       • La question a été repondue #{@question.answer_counter} fois
     .profile-padding
-      • Il y a eu #{@presenter.present_correct_ratio} de bonnes réponses
+      • Il y a eu #{QuestionPresenter.present_correct_ratio(@question)} de bonnes réponses
     .profile-padding
-      • #{@presenter.present_like_ratio} d'utilisateurs ont aimé la question
+      • #{QuestionPresenter.present_like_ratio(@question)} d'utilisateurs ont aimé la question
 %table.table.table-striped
   %thead
     %tr.info
       %th Utilisateur
       %th Correct ?
       %th Réponses données
-    - @presenter.last_answers(10).reverse.each do |given_answer|
+    - QuestionPresenter.last_answers(10, @question).reverse.each do |given_answer|
       %tr
-        %td= @presenter.user_name(given_answer)
-        %td= @presenter.present_is_correct(given_answer)
-        %td= @presenter.present_given_answers(given_answer)
+        %td= QuestionPresenter.user_name(given_answer)
+        %td= QuestionPresenter.present_is_correct(given_answer)
+        %td= QuestionPresenter.present_given_answers(given_answer)
