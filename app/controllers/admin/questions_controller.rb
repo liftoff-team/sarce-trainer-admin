@@ -1,6 +1,5 @@
 class Admin::QuestionsController < AdminController
   before_action :assign_question, only: %i(show edit update destroy)
-  before_action :assign_presenter, only: %i(show edit)
 
   def index
     @questions = Question.all
@@ -53,8 +52,4 @@ end
 
 def assign_question
   @question = Question.find(params[:id])
-end
-
-def assign_presenter
-  @presenter = QuestionPresenter.new(@question)
 end
