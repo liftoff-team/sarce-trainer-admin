@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Admin::QuestionsController do
-  before(:each) { login_admin }
+RSpec.describe QuestionsController do
+  before(:each) { login_user }
 
   describe 'GET index' do
     it 'returns http success' do

@@ -1,4 +1,4 @@
-class Admin::QuestionsController < AdminController
+class QuestionsController < ApplicationController
   before_action :assign_question, only: %i(show edit update destroy)
 
   def index
@@ -15,7 +15,7 @@ class Admin::QuestionsController < AdminController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to admin_question_path(@question.id),
+      redirect_to question_path(@question.id),
                   notice: 'The question was added successfully!'
     else
       render :new
@@ -27,7 +27,7 @@ class Admin::QuestionsController < AdminController
 
   def update
     if @question.update_attributes(question_params)
-      redirect_to admin_question_path(@question.id),
+      redirect_to question_path(@question.id),
                   notice: 'The question was updated successfully!'
     else
       render :edit
@@ -36,7 +36,7 @@ class Admin::QuestionsController < AdminController
 
   def destroy
     @question.destroy
-    redirect_to admin_questions_path,
+    redirect_to questions_path,
                 notice: 'The question was destroyed successfully!'
   end
 end

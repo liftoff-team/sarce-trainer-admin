@@ -6,7 +6,7 @@ RSpec.describe QuestionService do
 
   before do
     sign_in_user(user)
-    visit "admin/questions/#{question.id}"
+    visit "questions/#{question.id}"
   end
 
   it 'should call the Question service object' do

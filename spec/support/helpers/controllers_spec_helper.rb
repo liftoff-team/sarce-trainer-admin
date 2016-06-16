@@ -10,6 +10,6 @@ module ControllersHelpers
     @request.env['devise.mapping'] = Devise.mappings[:user]
     user = FactoryGirl.create(:user)
     user.confirm
-    sign_in(:user)
+    sign_in(:user, user)
   end
 end
