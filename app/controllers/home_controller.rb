@@ -1,13 +1,10 @@
 class HomeController < ApplicationController
   def index
-    if current_user
-      if current_user.is_admin
-        redirect_to questions_path
-      else
-        redirect_to my_profile_path
-      end
-    else
-      redirect_to new_user_session_path
-    end
+    home_path = if current_user
+                  current_user.is_admin ? questions_path : my_profile_path
+                else
+                  new_user_session_path
+                end
+    redirect_to(home_path)
   end
 end
