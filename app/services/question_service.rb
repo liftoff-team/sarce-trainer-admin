@@ -1,6 +1,6 @@
 class QuestionService
-  def initialize(question)
-    @question = question
+  def initialize(question_id)
+    @question = Question.find(question_id)
   end
 
   def find_correct_count
