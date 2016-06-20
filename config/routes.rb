@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :questions
 
   namespace :admin do
-    resources :users, only: %i(show index)
+    resources :users, only: %i(show index edit update)
     resources :documentations
     resources :daily_questions
   end
