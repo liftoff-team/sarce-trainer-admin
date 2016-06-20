@@ -33,6 +33,11 @@ RSpec.describe Question do
     it { is_expected.to validate_presence_of(:negative_rates) }
   end
 
+  describe 'correct_answers is not valid if empty' do
+    subject { build(:question, correct_answers:[]) }
+    it { is_expected.to_not be_valid }
+  end
+
   describe 'association' do
     it { is_expected.to belong_to(:documentation) }
   end
