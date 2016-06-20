@@ -25,6 +25,7 @@ class Question < ApplicationRecord
             :answer_counter,
             :positive_rates,
             :negative_rates, presence: true
+  validates :correct_answers, length: { minimum: 1 }
 
   before_save :convert_correct_answers
 
