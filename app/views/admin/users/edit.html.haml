@@ -1,0 +1,22 @@
+%h2.text-center Modifier l'utilisateur
+= form_for(@user, url: admin_user_path(@user)) do |f|
+  .field
+    %h4= f.label :first_name
+    = f.text_field :first_name, class: 'form-control' , autofocus: true
+  .field
+    %h4= f.label :last_name
+    = f.text_field :last_name, class: 'form-control'
+  .field
+    %h4= f.label :cis
+    = f.text_field :cis, class: 'form-control'
+  .field
+    %h4= f.label :rank
+    = f.select(:rank,
+      @ranks.map { |key, value| [ value[:name], key ] }, {}, {class: 'form form-group form-control'})
+  .field
+    %h4
+      = f.label 'Administrateur?'
+      = f.select(:is_admin, options_for_select([['Oui', true], ['Non', false]], selected: @user.is_admin))
+  .actions
+    = f.submit 'Mettre à jour', class: 'btn btn-primary'
+= link_to 'Retour', :back

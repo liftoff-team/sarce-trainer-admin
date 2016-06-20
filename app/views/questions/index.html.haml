@@ -1,0 +1,16 @@
+%h2.text-center
+  Liste des questions
+  = link_to new_question_path do
+    %span.glyphicon.glyphicon-plus
+%table.table.table-striped
+  - @questions.each do |question|
+    %tr
+      %td= question.answer_counter
+      %td= question.body
+      %td
+        = link_to question_path(question) do
+          %span.glyphicon.glyphicon-eye-open
+      %td
+        = link_to edit_question_path(question) do
+          %span.glyphicon.glyphicon-pencil
+      %td{ style: 'width:40px' }= QuestionPresenter.present_like_ratio(question)

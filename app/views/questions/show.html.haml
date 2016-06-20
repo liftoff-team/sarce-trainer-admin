@@ -1,0 +1,28 @@
+= link_to questions_path do
+  %span.glyphicon.glyphicon-circle-arrow-left.lead
+.panel.panel-info
+  .panel-heading
+    %h3.panel-title
+      = @question.body
+  .panel-body
+    .profile-padding
+      • Les réponses sont :
+      %span.unmark
+        = highlight(QuestionPresenter.present_answers(@question), @question.correct_answers)
+    .profile-padding
+      • La question a été repondue #{@question.answer_counter} fois
+    .profile-padding
+      • Il y a eu #{QuestionPresenter.present_correct_ratio(@question)} de bonnes réponses
+    .profile-padding
+      • #{QuestionPresenter.present_like_ratio(@question)} d'utilisateurs ont aimé la question
+%table.table.table-striped
+  %thead
+    %tr.info
+      %th Utilisateur
+      %th Correct ?
+      %th Réponses données
+    - QuestionPresenter.last_answers(10, @question).reverse.each do |given_answer|
+      %tr
+        %td= QuestionPresenter.user_name(given_answer)
+        %td= QuestionPresenter.present_is_correct(given_answer)
+        %td= QuestionPresenter.present_given_answers(given_answer)

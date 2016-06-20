@@ -7,6 +7,7 @@ def create_sarce_trainer_minimal_stack
   create_users
   create_documentations
   create_questions
+  create_daily_questions
   create_given_answers
 end
 

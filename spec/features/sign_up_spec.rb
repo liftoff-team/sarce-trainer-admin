@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'Sign up' do
+  given(:user) { build(:user) }
+
   background do
-    visit '/'
-    click_on 'Inscription'
+    visit '/users/sign_up'
 
     fill_in 'user_first_name', with: user.first_name
     fill_in 'user_last_name', with: user.last_name
@@ -15,13 +16,9 @@ RSpec.feature 'Sign up' do
     click_button "S'inscrire"
   end
 
-  context 'a user wants to create a new account' do
-    let(:user) { build(:user) }
-
-    scenario 'should sign up the user with valid data' do
-      expect(last_email.to).to eq([user.email])
-      expect(page).to have_content 'Un message avec un lien de confirmation
-                                    vous a été envoyé par mail.'
-    end
+  scenario 'should sign up the user with valid data' do
+    expect(last_email.to).to eq([user.email])
+    expect(page).to have_content 'Un message avec un lien de confirmation
+                                  vous a été envoyé par mail.'
   end
 end

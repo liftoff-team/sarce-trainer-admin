@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'Password reset' do
+  given(:user) { build(:user) }
+
   background do
     user.confirm
 
@@ -11,14 +13,10 @@ RSpec.feature 'Password reset' do
     click_button 'Renvoyez-moi un nouveau mot de passe'
   end
 
-  context 'a user lost its password' do
-    let(:user) { build(:user) }
-
-    scenario 'should send password reset instructions' do
-      expect(page).to have_content 'Vous allez recevoir sous quelques minutes un
-                                    email vous indiquant comment réinitialiser
-                                    votre mot de passe'
-      expect(last_email.to).to eq([user.email])
-    end
+  scenario 'should send password reset instructions' do
+    expect(page).to have_content 'Vous allez recevoir sous quelques minutes un
+                                  email vous indiquant comment réinitialiser
+                                  votre mot de passe'
+    expect(last_email.to).to eq([user.email])
   end
 end

@@ -17,9 +17,17 @@
 
 class Question < ApplicationRecord
   belongs_to :documentation
-  validates :body, :answers, :correct_answers, :explanation,
-             :documentation_id, :answer_counter, :positive_rates,
-             :negative_rates, presence: true
+  validates :body,
+            :answers,
+            :correct_answers,
+            :explanation,
+            :documentation_id,
+            :answer_counter,
+            :positive_rates,
+            :negative_rates, presence: true
+  validates :correct_answers, length: { minimum: 1 }
+
+  before_save :convert_correct_answers
 
   def correct_count
     QuestionService.new(self).find_correct_count
@@ -35,5 +43,9 @@ class Question < ApplicationRecord
 
   def like_ratio
     total_rates == 0 ? 0.to_f : positive_rates.to_f / total_rates
+  end
+
+  def convert_correct_answers
+    correct_answers.map! { |index| answers[index.to_i] }
   end
 end
