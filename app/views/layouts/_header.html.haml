@@ -4,7 +4,6 @@
   %p.alert.alert-danger.alert-dismissible{role: 'alert'}= alert
 
 %ul.nav.nav-pills.navbar-fixed-top.well
-  %li{class: active_class(root_path), role: 'presentation'}= link_to 'Accueil', root_path
   - if user_signed_in?
     %li{class: active_class(my_profile_path), role: 'presentation'}= link_to "#{current_user.first_name} #{current_user.last_name}", my_profile_path
     %li{class: active_class(questions_path), role: 'presentation'}= link_to 'Questions', questions_path

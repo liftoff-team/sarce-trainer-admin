@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Sign up' do
   background do
-    visit '/'
-    click_on 'Inscription'
+    visit '/users/sign_up'
 
     fill_in 'user_first_name', with: user.first_name
     fill_in 'user_last_name', with: user.last_name
