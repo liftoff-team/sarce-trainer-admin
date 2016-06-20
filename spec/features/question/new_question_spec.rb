@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'New question' do
   given(:user) { build(:user, :admin) }
+  given(:documentation) { create(:documentation) }
 
   background do
     sign_in_user(user)
@@ -15,8 +16,8 @@ RSpec.feature 'New question' do
     fill_in 'text_3', with: 'oiseau'
     check 'checkbox_3'
     fill_in 'text_4', with: 'ruby'
-    fill_in 'Explication', with: 'documentation'
-    fill_in 'Documentation', with: 1
+    fill_in 'Explication', with: 'explication'
+    fill_in 'Documentation', with: documentation.id
 
     click_button 'Valider'
   end

@@ -2,11 +2,12 @@ require 'rails_helper'
 
 RSpec.feature 'Edit question' do
   given(:user) { build(:user, :admin) }
+  given(:question) { create(:question) }
 
   background do
     sign_in_user(user)
 
-    visit 'questions/1/edit'
+    visit "questions/#{question.id}/edit"
 
     fill_in 'Intitulé', with: 'nouvelle question'
 

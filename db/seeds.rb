@@ -1,7 +1,7 @@
 require 'factory_girl'
 require 'faker'
 # require all factories
-# Dir[Rails.root.join('spec/factories/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/factories/*.rb')].each { |f| require f }
 
 def create_sarce_trainer_minimal_stack
   create_users
