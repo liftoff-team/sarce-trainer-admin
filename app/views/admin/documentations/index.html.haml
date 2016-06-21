@@ -1,1 +1,16 @@
-= @documentations.map(&:name)
+%h2.text-center
+  Liste des documents
+  = link_to new_admin_documentation_path do
+    %span.glyphicon.glyphicon-plus
+%table.table.table-striped
+  - @documentations.each do |documentation|
+    %tr
+      %td= documentation.name
+      %td= documentation.short_name
+      %td= documentation.cover_path
+      %td
+        = link_to admin_documentation_path(documentation) do
+          %span.glyphicon.glyphicon-eye-open
+      %td
+        = link_to edit_admin_documentation_path(documentation) do
+          %span.glyphicon.glyphicon-pencil
