@@ -1,1 +1,12 @@
-= @documentation.name
+= link_to admin_documentations_path do
+  %span.glyphicon.glyphicon-circle-arrow-left.lead
+.title
+  = @documentation.name
+%table.table.table-striped
+  %thead
+    %tr.info
+      %th Abbréviation
+      %th Couverture
+      %tr
+        %td= @documentation.short_name
+        %td= @documentation.cover_path
