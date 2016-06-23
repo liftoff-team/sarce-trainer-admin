@@ -1,0 +1,4 @@
+%h2.text-center Nouvelle Documentation
+= @documentation.errors.full_messages.to_sentence if @documentation.errors.any?
+= form_for @documentation, url: {action: "create"} do |f|
+  = render partial:  'form', locals: { f: f }
