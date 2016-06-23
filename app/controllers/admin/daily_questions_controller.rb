@@ -3,6 +3,7 @@ class Admin::DailyQuestionsController < AdminController
 
   def index
     @daily_questions = DailyQuestion.all
+    @daily_questions.order('scheduled_at ASC')
   end
 
   def show
