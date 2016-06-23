@@ -9,6 +9,7 @@ body {
   border-color: #ebccd1;
  }
 
+
 .navbar-fixed-top {
  padding-left: 1.875rem;
  padding-top: 1.875rem;
@@ -36,3 +37,13 @@ body {
    padding-left: 10px;
    font-size: 20px;
  }
+
+ .title {
+   font-size: 2rem;
+   padding-bottom: 1rem;
+   font-weight: bold;
+ }
+
+.table {
+  white-space: nowrap;
+}
