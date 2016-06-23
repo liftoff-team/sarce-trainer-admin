@@ -1,8 +1,10 @@
 # Sarce Trainer Admin
 
-[![Build Status](https://travis-ci.org/liftoff-team/sarce-trainer-admin.svg?branch=develop)](https://travis-ci.org/liftoff-team/sarce-trainer-admin)
-[![Stories in Ready](https://badge.waffle.io/liftoff-team/sarce-trainer-admin.png?label=ready&title=Ready)](https://waffle.io/liftoff-team/sarce-trainer-admin)
 [![Code Climate](https://codeclimate.com/github/liftoff-team/sarce-trainer-admin/badges/gpa.svg)](https://codeclimate.com/github/liftoff-team/sarce-trainer-admin)
+[![Codeship master](https://codeship.com/projects/159694/status?branch=master)]
+[![Codeship production](https://codeship.com/projects/159694/status?branch=production)]
+[![Build Status](https://travis-ci.org/liftoff-team/sarce-trainer-admin.svg?branch=master)](https://travis-ci.org/liftoff-team/sarce-trainer-admin)
+[![Build Status](https://travis-ci.org/liftoff-team/sarce-trainer-admin.svg?branch=production)](https://travis-ci.org/liftoff-team/sarce-trainer-admin)
 
 **Sarces Trainer is a mobile application that helps firefighters to update their knowledge by answering a daily question.**
 
