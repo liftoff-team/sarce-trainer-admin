@@ -28,6 +28,7 @@ group :test do
   gem 'factory_girl_rails',   '~> 4.7'            # factory_girl_rails provides integration between factory_girl and rails
   gem 'faker',                '~> 1.6'            # Faker is used to easily generate fake data: names, addresses, phone numbers, etc
   gem 'capybara',             '~> 2.7'            # Capybara is an integration testing tool for rack based web applications. It simulates how a user would interact with a website
+  gem 'selenium-webdriver',   '~> 2.53'
   gem 'poltergeist'
   gem 'phantomjs',            require: 'phantomjs/poltergeist'
   gem 'codeclimate-test-reporter'
