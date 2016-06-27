@@ -27,6 +27,6 @@
     = f.text_field :explanation, class: 'form-control', id: 'Explication', required: true
   .field
     %h4= f.label 'Documentation'
-    = f.number_field :documentation_id, class: 'form-control', id: 'Documentation', required: true
+    = f.select(:documentation_id, options_for_select(Documentation.all.map {|d| [d.name, d.id]}), {}, {class: 'form form-group form-control'})
   .actions
     = f.submit 'Valider', class: 'btn btn-primary'
