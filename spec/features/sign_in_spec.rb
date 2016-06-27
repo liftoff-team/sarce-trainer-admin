@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Sign in' do
-  given(:user) { build(:user) }
+  given(:user) { create(:user) }
 
   background { sign_in_user(user) }
 

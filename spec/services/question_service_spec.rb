@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe QuestionService do
-  let(:user) { build(:user, :admin) }
+  let(:user) { create(:user, :admin) }
   let(:question) { create(:question) }
 
   before do
