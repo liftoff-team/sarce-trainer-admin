@@ -8,7 +8,7 @@ gem 'devise',                 '~> 4.1'            # Authentication solution
 gem 'devise-i18n'
 gem 'haml-rails',             '~> 0.9'            # Templating engine for HTML.
 gem 'bootstrap-sass',         '~> 3.3.6'          # Bootstrap 4 ruby gem for Ruby on Rails
-
+gem 'bootstrap-datepicker-rails', '~> 1.6'
 gem 'sass-rails',             '~> 5.0'            # Use SCSS for stylesheets
 gem 'uglifier',               '>= 1.3'            # Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails',           '~> 4.1'            # Use CoffeeScript for .coffee assets and views

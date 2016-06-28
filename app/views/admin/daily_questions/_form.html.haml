@@ -1,11 +1,8 @@
 .field
-.field
   %h4= f.label 'Question'
   = f.text_field :question_id, class: 'form-control', id: 'Question', required: true
 .field
   %h4= f.label 'Programmée le'
-  = f.text_field :scheduled_at, class: 'form-control', id: 'Programmée le', required: true
-  %h4= f.label 'Nombre de fois répondu'
-  = f.text_field :answer_counter, class: 'form-control', id: 'Nombre de fois répondu', required: true, autofocus: true
-.actions
+  = f.text_field  :scheduled_at, :id => "datepicker", class: 'form-control', value: (l @daily_question.scheduled_at, format: :short if @daily_question.scheduled_at?)
+  .actions
   = f.submit 'Valider', class: 'btn btn-primary'

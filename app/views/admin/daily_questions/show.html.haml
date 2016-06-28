@@ -4,9 +4,9 @@
   %thead
     %tr.info
       %th Question numéro
-      %th Nombre de fois répondu
+      %th Nombre de réponses obtenues
       %th Programmée le
       %tr
         %td= @daily_question.question_id
         %td= @daily_question.answer_counter
-        %td= @daily_question.scheduled_at
+        %td= l @daily_question.scheduled_at, format: :short

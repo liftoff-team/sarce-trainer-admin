@@ -1,4 +1,7 @@
 fr:
+  date:
+    formats:
+      short: "%d-%m-%Y"
   activerecord:
     attributes:
       user:
@@ -10,12 +13,21 @@ fr:
         email: Email
         password: Mot de passe
         remember_me: Se souvenir de moi
+      daily_question:
+        scheduled_at: Date
     errors:
       models:
         user:
           attributes:
             email:
               blank: ne peut être vide
+        daily_question:
+          attributes:
+            scheduled_at:
+              taken: déjà prise
+              blank: ne peut être vide
+            question:
+              required: avec un numéro
     models:
       user: Utilisateur
   devise:
