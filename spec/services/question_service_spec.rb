@@ -1,15 +1,48 @@
 require 'rails_helper'
 
 RSpec.describe QuestionService do
-  let(:user) { create(:user, :admin) }
-  let(:question) { create(:question) }
+  let(:question) { build_stubbed(:question) }
+  subject { described_class.new(question.id) }
+  describe '#find_correct_count' do
+    context "when question doesn't exist" do
+      before do
+        allow(Question).to receive(:find)
+          .and_raise(ActiveRecord::RecordNotFound)
+      end
 
-  before do
-    sign_in_user(user)
-    visit "questions/#{question.id}"
-  end
+      it 'raise an error' do
+        expect { subject.find_correct_count }
+          .to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
 
-  it 'should call the Question service object' do
-    expect(QuestionService).to respond_to(:new)
+    context 'when question exists' do
+      before { allow(Question).to receive(:find).and_return(question) }
+
+      context 'and there is no GivenAnswer' do
+        before do
+          allow(GivenAnswer).to receive(:where).and_return([])
+          @result = subject.find_correct_count
+        end
+        it { expect(@result).to eq(0) }
+        it do
+          expect(GivenAnswer).to have_received(:where)
+            .with(question_id: question.id, is_correct: true)
+        end
+      end
+
+      context 'and there is no correct GivenAnswer' do
+        before { allow(GivenAnswer).to receive(:where).and_return([]) }
+        it { expect(subject.find_correct_count).to eq(0) }
+      end
+
+      context 'and there is at least one correct GivenAnswer' do
+        let(:given_answer) { double }
+        before do
+          allow(GivenAnswer).to receive(:where).and_return([given_answer])
+          it { expect(subject.find_correct_count).to eq(1) }
+        end
+      end
+    end
   end
 end
