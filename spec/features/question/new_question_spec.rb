@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'New question' do
-  given(:user) { build(:user, :admin) }
+  given(:user) { create(:user, :admin) }
   given(:documentation) { create(:documentation) }
 
   background do

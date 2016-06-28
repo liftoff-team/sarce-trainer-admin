@@ -9,6 +9,7 @@ FactoryGirl.define do
     password_confirmation   password
     cis                     { Faker::Address.city }
     rank                    { Rank.const_get(:RANKS).keys.sample }
+    confirmed_at Time.now
 
     trait :admin do
       is_admin true

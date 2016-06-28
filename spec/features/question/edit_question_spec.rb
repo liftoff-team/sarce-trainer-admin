@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Edit question' do
-  given(:user) { build(:user, :admin) }
+  given(:user) { create(:user, :admin) }
   given(:question) { create(:question) }
 
   background do

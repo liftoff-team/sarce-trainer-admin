@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Password reset' do
-  given(:user) { build(:user) }
+  given(:user) { create(:user) }
 
   background do
     user.confirm
