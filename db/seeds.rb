@@ -1,14 +1,20 @@
+# TODO (Arnaud Lenglet): Find a way to include FactoryGirl synthax helpers
+# which would prevent from typing "FactoryGirl.create..." over and over.
 require 'factory_girl'
 require 'faker'
-# require all factories
 Dir[Rails.root.join('spec/factories/*.rb')].each { |f| require f }
 
 def create_sarce_trainer_minimal_stack
+  create_admin
   create_users
   create_documentations
   create_questions
   create_daily_questions
-  create_given_answers
+end
+
+def create_admin
+  FactoryGirl.create(:user, :admin)
+  puts '- 1 admin created'
 end
 
 def create_users
@@ -17,23 +23,21 @@ def create_users
 end
 
 def create_documentations
-  FactoryGirl.create_list(:documentation, 5)
-  puts '- 5 documentations created'
+  @documentation_1 = FactoryGirl.create(:documentation, name: 'scourisme')
+  FactoryGirl.create(:documentation, name: 'incendie')
+  puts '- 2 documentations created'
 end
 
 def create_questions
-  FactoryGirl.create_list(:question, 30)
-  puts '- 30 questions created'
+  FactoryGirl.create_list(:question, 5,
+                          :with_given_answers,
+                          documentation: @documentation_1)
+  puts '- 5 questions created'
 end
 
 def create_daily_questions
-  FactoryGirl.create_list(:daily_question, 30)
-  puts '- 30 daily questions created'
-end
-
-def create_given_answers
-  FactoryGirl.create_list(:given_answer, 100)
-  puts "- 100 given answers created"
+  FactoryGirl.create_list(:daily_question, 5)
+  puts '- 5 daily questions created'
 end
 
 create_sarce_trainer_minimal_stack

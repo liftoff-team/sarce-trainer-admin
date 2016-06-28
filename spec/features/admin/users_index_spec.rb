@@ -7,7 +7,7 @@ RSpec.feature 'Users index' do
   end
 
   context 'a non-admin user wants to access the index' do
-    given(:user) { build(:user) }
+    given(:user) { create(:user) }
 
     scenario 'should forbid the access to the users list' do
       expect(page).to have_content "You're not allowed to access
@@ -17,7 +17,7 @@ RSpec.feature 'Users index' do
   end
 
   context 'an admin user wants to access the index' do
-    given(:user) { build(:user, :admin) }
+    given(:user) { create(:user, :admin) }
 
     scenario 'should allow access to the users list' do
       expect(page).to have_content 'Liste des utilisateurs'
