@@ -23,7 +23,7 @@ def create_users
 end
 
 def create_documentations
-  @documentation_1 = FactoryGirl.create(:documentation, name: 'scourisme')
+  @documentation_1 = FactoryGirl.create(:documentation, name: 'secourisme')
   FactoryGirl.create(:documentation, name: 'incendie')
   puts '- 2 documentations created'
 end
