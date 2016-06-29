@@ -1,0 +1,4 @@
+%h2.text-center Modifier la question du jour
+= @daily_question.errors.full_messages.to_sentence if @daily_question.errors.any?
+= form_for @daily_question, url: {action: "update"} do |f|
+  = render partial:  'form', locals: { f: f }

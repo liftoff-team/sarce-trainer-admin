@@ -56,6 +56,8 @@ GEM
     autoprefixer-rails (6.3.6.2)
       execjs
     bcrypt (3.1.11)
+    bootstrap-datepicker-rails (1.6.1.1)
+      railties (>= 3.0)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -301,6 +303,7 @@ PLATFORMS
 DEPENDENCIES
   activemodel-serializers-xml!
   annotate (~> 2.7)
+  bootstrap-datepicker-rails (~> 1.6)
   bootstrap-sass (~> 3.3.6)
   byebug (~> 9.0)
   capybara (~> 2.7)
