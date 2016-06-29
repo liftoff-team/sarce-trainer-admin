@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe QuestionDecorator do
-
   describe '#last_answers' do
     let(:number) { 3 }
     let(:question) { build_stubbed(:question).decorate }
@@ -12,7 +11,10 @@ RSpec.describe QuestionDecorator do
         @result = question.last_answers(number)
       end
       it { expect(@result.count).to eq(0) }
-      it { expect(GivenAnswer).to have_received(:where).with(question_id: question.id) }
+      it do
+        expect(GivenAnswer).to have_received(:where)
+          .with(question_id: question.id)
+      end
     end
 
     context 'when there are between 1 and `number` GivenAnswers' do
@@ -24,7 +26,7 @@ RSpec.describe QuestionDecorator do
     end
 
     context 'when there more than `number` GivenAnswer' do
-      let(:given_answers) { [double]*5 }
+      let(:given_answers) { [double] * 5 }
       before do
         allow(GivenAnswer).to receive(:where).and_return(given_answers)
         allow(given_answers).to receive(:last).and_call_original
