@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Users index' do
   background do
     sign_in_user(user)
-    visit '/admin/users'
+    visit admin_users_path
   end
 
   context 'a non-admin user wants to access the index' do
