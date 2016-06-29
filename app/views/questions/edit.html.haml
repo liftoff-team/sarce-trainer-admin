@@ -27,6 +27,6 @@
     = f.text_field :explanation, class: 'form-control', required: true, id: 'Explication'
   .field
     %h4= f.label 'Documentation'
-    = f.number_field :documentation_id, class: 'form-control', required: true, id: 'Documentation'
+    = f.select(:documentation_id, options_for_select(@documentations), {}, {class: 'form form-group form-control'})
   .actions
     = f.submit 'Modifier', class: 'btn btn-primary'

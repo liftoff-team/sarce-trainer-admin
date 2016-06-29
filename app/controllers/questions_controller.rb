@@ -9,7 +9,8 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @documentations = Documentation.all.pluck(:name, :id)
+    @question = Question.new.decorate
   end
 
   def create
@@ -23,6 +24,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @documentations = Documentation.all.pluck(:name, :id)
   end
 
   def update
