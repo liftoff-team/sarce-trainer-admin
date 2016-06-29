@@ -21,5 +21,5 @@
           = link_to admin_daily_question_path(daily_question)do
             %span.glyphicon.glyphicon-eye-open
         %td
-          = link_to edit_admin_daily_question_path(daily_question) do
+          = link_to edit_admin_daily_question_path(daily_question), method: :get do
             %span.glyphicon.glyphicon-pencil
