@@ -7,7 +7,7 @@ RSpec.feature 'New question' do
   background do
     sign_in_user(user)
 
-    visit 'questions/new'
+    visit new_question_path
 
     fill_in 'Intitulé', with: '0 + 0?'
     fill_in 'text_1', with: 'test'
