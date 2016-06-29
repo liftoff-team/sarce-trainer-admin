@@ -1,16 +1,3 @@
-# == Schema Information
-#
-# Table name: given_answers
-#
-#  id          :integer          not null, primary key
-#  question_id :integer
-#  user_id     :integer
-#  answers     :text             default("{}"), is an Array
-#  is_correct  :boolean
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#
-
 require 'rails_helper'
 
 RSpec.describe GivenAnswer do
@@ -27,5 +14,4 @@ RSpec.describe GivenAnswer do
   describe 'association' do
     it { should belong_to(:question) }
   end
-
 end

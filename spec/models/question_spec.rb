@@ -1,20 +1,3 @@
-# == Schema Information
-#
-# Table name: questions
-#
-#  id               :integer          not null, primary key
-#  body             :string
-#  answers          :text             default("{}"), is an Array
-#  correct_answers  :text             default("{}"), is an Array
-#  explanation      :text
-#  documentation_id :integer
-#  answer_counter   :integer          default("0")
-#  positive_rates   :integer          default("0")
-#  negative_rates   :integer          default("0")
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#
-
 require 'rails_helper'
 
 RSpec.describe Question do
@@ -34,7 +17,7 @@ RSpec.describe Question do
   end
 
   describe 'correct_answers is not valid if empty' do
-    subject { build(:question, correct_answers:[]) }
+    subject { build(:question, correct_answers: []) }
     it { is_expected.to_not be_valid }
   end
 

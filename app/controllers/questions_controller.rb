@@ -2,14 +2,15 @@ class QuestionsController < ApplicationController
   before_action :assign_question, only: %i(show edit update destroy)
 
   def index
-    @questions = Question.all
+    @questions = Question.all.decorate
   end
 
   def show
   end
 
   def new
-    @question = Question.new
+    @documentations = Documentation.all.pluck(:name, :id)
+    @question = Question.new.decorate
   end
 
   def create
@@ -23,6 +24,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @documentations = Documentation.all.pluck(:name, :id)
   end
 
   def update
@@ -51,5 +53,5 @@ def question_params
 end
 
 def assign_question
-  @question = Question.find(params[:id])
+  @question = Question.find(params[:id]).decorate
 end

@@ -8,25 +8,25 @@
   .field
     %h5
       =f.label 'Réponse 1'
-      %input{id: 'checkbox_1', name: 'question[correct_answers][]', type: 'checkbox', value: 0, checked: QuestionPresenter.answer_correct?(@question, 0)}
+      %input{id: 'checkbox_1', name: 'question[correct_answers][]', type: 'checkbox', value: 0, checked: @question.answer_correct?(@question, 0)}
       %input{id: 'text_1', name: 'question[answers][]', type:'text', required: true, value: "#{@question.answers[0]}"}
     %h5
       =f.label 'Réponse 2'
-      %input{id: 'checkbox_2', name: 'question[correct_answers][]', type: 'checkbox', value: 1, checked: QuestionPresenter.answer_correct?(@question, 1)}
+      %input{id: 'checkbox_2', name: 'question[correct_answers][]', type: 'checkbox', value: 1, checked: @question.answer_correct?(@question, 1)}
       %input{id: 'text_2', name: 'question[answers][]', type:'text', required: true, value: "#{@question.answers[1]}"}
     %h5
       =f.label 'Réponse 3'
-      %input{id: 'checkbox_3', name: 'question[correct_answers][]', type: 'checkbox', value: 2, checked: QuestionPresenter.answer_correct?(@question, 2)}
+      %input{id: 'checkbox_3', name: 'question[correct_answers][]', type: 'checkbox', value: 2, checked: @question.answer_correct?(@question, 2)}
       %input{id: 'text_3', name: 'question[answers][]', type:'text', value: "#{@question.answers[2]}"}
     %h5
       =f.label 'Réponse 4'
-      %input{id: 'checkbox_4', name: 'question[correct_answers][]', type: 'checkbox', value: 3, checked: QuestionPresenter.answer_correct?(@question, 3)}
+      %input{id: 'checkbox_4', name: 'question[correct_answers][]', type: 'checkbox', value: 3, checked: @question.answer_correct?(@question, 3)}
       %input{id: 'text_4', name: 'question[answers][]', type:'text', value: "#{@question.answers[3]}"}
   .field
     %h4= f.label 'Explication'
     = f.text_field :explanation, class: 'form-control', required: true, id: 'Explication'
   .field
     %h4= f.label 'Documentation'
-    = f.number_field :documentation_id, class: 'form-control', required: true, id: 'Documentation'
+    = f.select(:documentation_id, options_for_select(@documentations), {}, {class: 'form form-group form-control'})
   .actions
     = f.submit 'Modifier', class: 'btn btn-primary'

@@ -5,7 +5,9 @@ RSpec.feature 'Edit profile' do
 
   background do
     sign_in_user(user)
+  end
 
+  scenario 'should update the user profile with the data provided' do
     click_on "#{user.first_name} #{user.last_name}"
     click_on 'Modifier le profil'
 
@@ -14,9 +16,7 @@ RSpec.feature 'Edit profile' do
     fill_in 'user_password_confirmation', with: 'new_password'
     fill_in 'user_current_password', with: user.password
     click_button 'Mettre à jour'
-  end
 
-  scenario 'should update the user profile with the data provided' do
     expect(page).to have_content 'Votre compte a été modifié avec succès'
     expect(page).to have_content 'Caporal'
     expect(page.find('img')['alt']).to have_content 'Caporal'
