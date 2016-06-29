@@ -15,6 +15,9 @@ gem 'coffee-rails',           '~> 4.1'            # Use CoffeeScript for .coffee
 gem 'jquery-rails',           '~> 4.1'            # Use jquery as the JavaScript library
 gem 'turbolinks',             '~> 5.x'            # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'jbuilder',               '~> 2.0'            # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'draper',                 '~> 1.3'            # Draper adds an object-oriented layer of presentation logic to your Rails application.
+# Monkey patch: waiting for draper to be full compatible with Rails 5
+gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml' # Draper relies on activemodel-serializers-xml which is removed from Rails 5
 
 group :development, :test do
   gem 'byebug',               '~> 9.0', platform: :mri          # Byebug is a Ruby 2 debugger.

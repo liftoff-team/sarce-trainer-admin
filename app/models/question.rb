@@ -29,10 +29,12 @@ class Question < ApplicationRecord
 
   before_save :convert_correct_answers
 
+  # TODO : (fabienalbi) maybe call the service from the controller
   def correct_count
     QuestionService.new(self).find_correct_count
   end
 
+  # TODO : (fabienalbi) maybe move the below 3 methods into the presenter
   def correct_ratio
     answer_counter == 0 ? 0.to_f : correct_count.to_f / answer_counter
   end

@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :assign_question, only: %i(show edit update destroy)
 
   def index
-    @questions = Question.all
+    @questions = Question.all.decorate
   end
 
   def show
@@ -51,5 +51,5 @@ def question_params
 end
 
 def assign_question
-  @question = Question.find(params[:id])
+  @question = Question.find(params[:id]).decorate
 end
