@@ -1,5 +1,6 @@
 class Admin::DocumentationsController < AdminController
   before_action :assign_documentation, only: %i(show edit update destroy)
+  before_action :assign_documentations_cover_path, only: %i(new edit)
 
   def index
     @documentations = Documentation.all
@@ -48,5 +49,9 @@ class Admin::DocumentationsController < AdminController
 
   def assign_documentation
     @documentation = Documentation.find(params[:id])
+  end
+
+  def assign_documentations_cover_path
+    @documentations_cover_path = Documentation.pluck(:cover_path)
   end
 end
