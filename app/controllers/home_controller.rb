@@ -1,10 +1,8 @@
 class HomeController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
-    home_path = if current_user
-                  current_user.is_admin ? questions_path : my_profile_path
-                else
-                  new_user_session_path
-                end
-    redirect_to(home_path)
+    return redirect_to(new_user_session_path) unless current_user
+    redirect_to(current_user.is_admin ? questions_path : my_profile_path)
   end
 end
