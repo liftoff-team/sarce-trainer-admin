@@ -1,8 +1,6 @@
--# Add method: :get because javaScript not loading after clicking through link_to
--# turbolinks problem (http://stackoverflow.com/questions/17600093/rails-javascript-not-loading-after-clicking-through-link-to-helper)
 %h2.text-center
   Liste quotidienne des questions
-  = link_to new_admin_daily_question_path, method: :get do
+  = link_to new_admin_daily_question_path do
     %span.glyphicon.glyphicon-plus
 %table.table
   %thead
@@ -21,5 +19,5 @@
           = link_to admin_daily_question_path(daily_question)do
             %span.glyphicon.glyphicon-eye-open
         %td
-          = link_to edit_admin_daily_question_path(daily_question), method: :get do
+          = link_to edit_admin_daily_question_path(daily_question) do
             %span.glyphicon.glyphicon-pencil

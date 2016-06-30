@@ -7,5 +7,5 @@
   = f.text_field :short_name, class: 'form-control', id: 'Abbréviation', required: true
 .field
   %h4= f.label 'Couverture'
-  = f.select(:cover_path, options_for_select(Documentation.all.map { |d| [d.cover_path] }), {}, {class: 'form form-group form-control'})
+  = f.select(:cover_path, options_for_select(@documentations_cover_path), {}, {class: 'form form-group form-control'})
   = f.submit 'Valider', class: 'btn btn-primary'

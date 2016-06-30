@@ -1,4 +1,4 @@
-class QuestionDecorator < Draper::Decorator
+class QuestionDecorator < Drape::Decorator
   delegate_all
 
   def last_answers(number)
