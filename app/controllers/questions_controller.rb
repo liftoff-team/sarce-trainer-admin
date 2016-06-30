@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :assign_question, only: %i(show edit update destroy)
+  before_action :assign_documentations_name_id, only: %i(new edit)
 
   def index
     @questions = Question.all.decorate
@@ -9,7 +10,6 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @documentations = Documentation.all.pluck(:name, :id)
     @question = Question.new.decorate
   end
 
@@ -24,7 +24,6 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @documentations = Documentation.all.pluck(:name, :id)
   end
 
   def update
@@ -41,17 +40,21 @@ class QuestionsController < ApplicationController
     redirect_to questions_path,
                 notice: 'The question was destroyed successfully!'
   end
-end
 
-private
+  private
 
-def question_params
-  params.require(:question).permit(
-    :body, { answers: [] }, { correct_answers: [] }, :explanation,
-    :documentation_id, :answer_counter, :positive_rates, :negative_rates
-  )
-end
+  def question_params
+    params.require(:question).permit(
+      :body, { answers: [] }, { correct_answers: [] }, :explanation,
+      :documentation_id, :answer_counter, :positive_rates, :negative_rates
+    )
+  end
 
-def assign_question
-  @question = Question.find(params[:id]).decorate
+  def assign_question
+    @question = Question.find(params[:id]).decorate
+  end
+
+  def assign_documentations_name_id
+    @documentations = Documentation.pluck(:name, :id)
+  end
 end
