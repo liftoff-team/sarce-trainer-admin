@@ -16,4 +16,4 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
-//= require components/datepicker.coffee
+//= require components/datepicker.js.coffee
