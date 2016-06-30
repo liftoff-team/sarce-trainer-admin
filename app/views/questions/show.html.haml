@@ -23,6 +23,6 @@
       %th Réponses données
     - @question.last_answers(10).reverse.each do |given_answer|
       %tr
-        %td= QuestionPresenter.user_name(given_answer)
-        %td= QuestionPresenter.present_is_correct(given_answer)
-        %td= QuestionPresenter.present_given_answers(given_answer)
+        %td= @question.user_name(given_answer)
+        %td= @question.present_is_correct(given_answer)
+        %td= @question.present_given_answers(given_answer)
