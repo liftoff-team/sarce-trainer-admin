@@ -17,6 +17,7 @@ class Admin::UsersController < AdminController
       redirect_to admin_user_path(@user.id),
                   notice: 'The user was updated successfully!'
     else
+      @ranks = Rank.const_get(:RANKS)
       render :edit
     end
   end
