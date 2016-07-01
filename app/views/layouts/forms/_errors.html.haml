@@ -1,0 +1,5 @@
+#form_errors_explanations
+  %h2= t('forms.errors.header')
+  %ul
+    - model_with_errors.errors.each do |error|
+      %li error.message
