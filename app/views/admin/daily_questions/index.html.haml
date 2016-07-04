@@ -5,14 +5,14 @@
 %table.table
   %thead
     %tr.info
-      %th Question
+      %th Intitulé de la question
       %th Nombre de réponses obtenues
       %th Programée le
       %th{colspan: 2}
 
     - @daily_questions.each do |daily_question|
       %tr
-        %td= daily_question.question_id
+        %td= daily_question.question.body
         %td= daily_question.answer_counter
         %td= l daily_question.scheduled_at, format: :short
         %td
