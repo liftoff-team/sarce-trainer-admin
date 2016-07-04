@@ -17,7 +17,9 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     if @question.save
       redirect_to question_path(@question.id),
-                  notice: 'The question was added successfully!'
+                  notice: t('controllers.crud.success.create',
+                            model: t("activerecord.models.#{Question.to_s.underscore}"))
+
     else
       render :new
     end
@@ -29,7 +31,9 @@ class QuestionsController < ApplicationController
   def update
     if @question.update_attributes(question_params)
       redirect_to question_path(@question.id),
-                  notice: 'The question was updated successfully!'
+                  notice: t('controllers.crud.success.update',
+                            model: t("activerecord.models.#{QuestionDecorator.to_s.underscore}"))
+
     else
       render :edit
     end
@@ -38,7 +42,8 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     redirect_to questions_path,
-                notice: 'The question was destroyed successfully!'
+                notice: t('controllers.crud.success.destroy',
+                          model: t("activerecord.models.#{Question.to_s.underscore}"))
   end
 
   private

@@ -15,7 +15,9 @@ class Admin::UsersController < AdminController
   def update
     if @user.update(user_params)
       redirect_to admin_user_path(@user.id),
-                  notice: 'The user was updated successfully!'
+                  notice: t('controllers.crud.success.update',
+                  model: t("activerecord.models.#{User.to_s.underscore}"))
+
     else
       @ranks = Rank.const_get(:RANKS)
       render :edit
