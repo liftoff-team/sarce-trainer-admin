@@ -7,10 +7,10 @@
       - if @minimum_password_length
         %span.label.label-danger
           (minimum #{@minimum_password_length} caractères)
-    = f.password_field :password, class: 'form-control', autocomplete: 'off'
+    = f.password_field :password, class: 'form-control', autocomplete: 'off', required: true
   .field
     %h4= f.label :password_confirmation
-    = f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off'
+    = f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off', required: true
   .actions
     = f.submit "S'inscrire", class: 'btn btn-primary'
 = render 'devise/shared/links'

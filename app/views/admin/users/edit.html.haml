@@ -9,7 +9,7 @@
     = f.text_field :last_name, class: 'form-control'
   .field
     %h4= f.label :cis
-    = f.text_field :cis, class: 'form-control'
+    = f.text_field :cis, class: 'form-control', required: true
   .field
     %h4= f.label :rank
     = f.select(:rank,
