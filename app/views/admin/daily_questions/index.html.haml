@@ -8,7 +8,7 @@
       %th Question
       %th Nombre de réponses obtenues
       %th Programée le
-      %th{colspan: 5}
+      %th{colspan: 2}
 
     - @daily_questions.each do |daily_question|
       %tr
@@ -16,7 +16,7 @@
         %td= daily_question.answer_counter
         %td= l daily_question.scheduled_at, format: :short
         %td
-          = link_to admin_daily_question_path(daily_question)do
+          = link_to question_path(daily_question.question_id) do
             %span.glyphicon.glyphicon-eye-open
         %td
           = link_to edit_admin_daily_question_path(daily_question) do
