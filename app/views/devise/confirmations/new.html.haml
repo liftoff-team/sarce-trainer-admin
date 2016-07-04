@@ -3,7 +3,11 @@
   = devise_error_messages!
   .field
     %h4= f.label :email
-    = f.email_field :email, class: 'form-control', autofocus: true, required: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+    = f.email_field :email,
+                    class: 'form-control',
+                    autofocus: true,
+                    required: true,
+                    value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
   .actions
     = f.submit 'Renvoyer',  class: 'btn btn-primary'
 = render 'devise/shared/links'
