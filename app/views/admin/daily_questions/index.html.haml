@@ -12,7 +12,7 @@
 
     - @daily_questions.each do |daily_question|
       %tr
-        %td= daily_question.question.body
+        %td= daily_question.question_body
         %td= daily_question.answer_counter
         %td= l daily_question.scheduled_at, format: :short
         %td

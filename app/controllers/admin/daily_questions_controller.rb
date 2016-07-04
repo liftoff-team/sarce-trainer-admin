@@ -2,8 +2,7 @@ class Admin::DailyQuestionsController < AdminController
   before_action :assign_daily_question, only: %i(show edit update destroy)
 
   def index
-    @daily_questions = DailyQuestion.all
-    @daily_questions.order('scheduled_at ASC')
+    @daily_questions = DailyQuestion.all.includes(:question).order('scheduled_at ASC').decorate
   end
 
   def show
