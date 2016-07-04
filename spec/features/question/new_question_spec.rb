@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'New question', js: true do
-  given(:user) { build(:user, :admin) }
+  given(:user) { create(:user, :admin) }
   given!(:documentation) { create(:documentation, name: 'incendie') }
 
   background do

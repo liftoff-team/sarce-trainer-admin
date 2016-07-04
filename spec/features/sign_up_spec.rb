@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Sign up' do
+RSpec.feature 'Sign up', js: true do
   given(:user) { build(:user) }
 
   background do
