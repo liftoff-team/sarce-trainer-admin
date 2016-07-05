@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :assign_question, only: %i(show edit update destroy)
-  before_action :assign_documentations_name_id, only: %i(new edit)
+  before_action :assign_documentations_name_id, only: %i(new edit create update)
 
   def index
     @questions = Question.all.decorate

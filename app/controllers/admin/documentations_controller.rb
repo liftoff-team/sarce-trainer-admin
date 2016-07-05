@@ -1,6 +1,6 @@
 class Admin::DocumentationsController < AdminController
   before_action :assign_documentation, only: %i(show edit update destroy)
-  before_action :assign_documentations_cover_path, only: %i(new edit)
+  before_action :assign_documentations_cover_path, only: %i(new edit create update)
 
   def index
     @documentations = Documentation.all
