@@ -1,6 +1,6 @@
 -# todo : see if it's possible to refactor with a partial
 %h2.text-center Nouvelle Question
-= @question.errors.full_messages.to_sentence if @question.errors.any?
+= render('layouts/forms/errors', model_with_errors: @question) if @question.errors.any?
 = form_for @question, url: {action: "create"} do |f|
   .field
     %h4= f.label 'Intitulé'
