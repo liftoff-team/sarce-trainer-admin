@@ -21,6 +21,8 @@ fr:
           attributes:
             email:
               blank: ne peut être vide
+            current_password:
+              blank: vide
         daily_question:
           attributes:
             scheduled_at:

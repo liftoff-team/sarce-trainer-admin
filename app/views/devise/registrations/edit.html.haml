@@ -11,10 +11,6 @@
   .field
     %h4= f.label :password_confirmation
     = f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off'
-  .field
-    %h4= f.label :current_password
-    = f.password_field :current_password, class: 'form-control', autocomplete: 'off'
-    %i (Nous avons besoin de votre mot de passe actuel pour valider les changements)
   .actions
     = f.submit 'Mettre à jour', class: 'btn btn-primary'
 %p

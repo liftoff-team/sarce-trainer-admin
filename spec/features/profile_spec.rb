@@ -14,7 +14,6 @@ RSpec.feature 'Edit profile' do
     select 'Caporal', from: 'user_rank'
     fill_in 'user_password', with: 'new_password'
     fill_in 'user_password_confirmation', with: 'new_password'
-    fill_in 'user_current_password', with: user.password
     click_button 'Mettre à jour'
 
     expect(page).to have_content 'Votre compte a été modifié avec succès'
