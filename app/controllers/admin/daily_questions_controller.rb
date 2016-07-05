@@ -1,5 +1,6 @@
 class Admin::DailyQuestionsController < AdminController
   before_action :assign_daily_question, only: %i(show edit update destroy)
+  before_action :assign_questions_body_id, only: %i(new edit create update)
 
   def index
     @daily_questions = DailyQuestion.all.includes(:question).order('scheduled_at ASC').decorate
@@ -54,5 +55,9 @@ class Admin::DailyQuestionsController < AdminController
   def daily_question_params
     params.require(:daily_question).permit(:question_id, :answer_counter,
                                            :scheduled_at)
+  end
+
+  def assign_questions_body_id
+    @questions_body_id = Question.limit(100).pluck(:body, :id)
   end
 end
