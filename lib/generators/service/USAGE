@@ -1,0 +1,9 @@
+Description:
+    Generate a Service file + its spec file
+
+Example:
+    rails generate service User
+
+    This will create:
+        app/services/user_service.rb
+        spec/services/user_service_spec.rb
