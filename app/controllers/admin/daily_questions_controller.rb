@@ -16,10 +16,9 @@ class Admin::DailyQuestionsController < AdminController
   def create
     @daily_question = DailyQuestion.new(daily_question_params)
     if @daily_question.save
-      redirect_to admin_daily_question_path(@daily_question.id),
+      redirect_to admin_daily_questions_path,
                   notice: t('controllers.crud.success.update',
                           model: t("activerecord.models.#{DailyQuestion.to_s.underscore}"))
-
     else
       render :new
     end
