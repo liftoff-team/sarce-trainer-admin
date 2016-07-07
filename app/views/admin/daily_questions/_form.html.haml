@@ -1,8 +1,9 @@
+= render('layouts/forms/errors', model_with_errors: @daily_question) if @daily_question.errors.any?
 .field
   %h4= f.label 'Question'
-  = f.text_field :question_id, class: 'form-control', id: 'Question', required: true
+  = f.select(:question_id, options_for_select(@questions_body_id), {}, {class: 'form form-group form-control'})
 .field
   %h4= f.label 'Programmée le'
-  = f.text_field  :scheduled_at, :id => "datepicker", class: 'form-control', value: (l @daily_question.scheduled_at, format: :short if @daily_question.scheduled_at?)
+  = f.text_field  :scheduled_at, :id => "datepicker", class: 'form-control', value: (l @daily_question.scheduled_at, format: :short if @daily_question.scheduled_at?), required: true
   .actions
   = f.submit 'Valider', class: 'btn btn-primary'

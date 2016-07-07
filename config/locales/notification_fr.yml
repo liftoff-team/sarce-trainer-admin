@@ -1,0 +1,12 @@
+fr:
+  controllers:
+    crud:
+      success:
+        create: "%{model} ajouté(e) avec succès !"
+        update: "%{model} modifiée(e) avec succès."
+        destroy: "%{model} supprimée."
+      errors:
+        create: "Erreur : %{model} n'a pas été créé(e)."
+        update: "Erreur : %{model} #%{id} n'a pas pu être modifié(e)."
+        destroy: "Erreur : impossible de supprimer %{model} #%{id}."
+        allow: "Erreur : Vous n'êtes pas administrateur, accès interdit !"

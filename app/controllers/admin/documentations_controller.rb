@@ -1,6 +1,6 @@
 class Admin::DocumentationsController < AdminController
   before_action :assign_documentation, only: %i(show edit update destroy)
-  before_action :assign_documentations_cover_path, only: %i(new edit)
+  before_action :assign_documentations_cover_path, only: %i(new edit create update)
 
   def index
     @documentations = Documentation.all
@@ -17,7 +17,9 @@ class Admin::DocumentationsController < AdminController
     @documentation = Documentation.new(documentation_params)
     if @documentation.save
       redirect_to admin_documentation_path(@documentation.id),
-                  notice: 'The documentation was created successfully!'
+                  notice: t('controllers.crud.success.create',
+                            model: t("activerecord.models.#{Documentation.to_s.underscore}"))
+
     else
       render :new
     end
@@ -29,7 +31,9 @@ class Admin::DocumentationsController < AdminController
   def update
     if @documentation.update(documentation_params)
       redirect_to admin_documentation_path(@documentation.id),
-                  notice: 'The documentation was updated successfully!'
+                  notice: t('controllers.crud.success.update',
+                            model: t("activerecord.models.#{Documentation.to_s.underscore}"))
+
     else
       render :edit
     end
@@ -38,7 +42,8 @@ class Admin::DocumentationsController < AdminController
   def destroy
     @documentation.destroy
     redirect_to admin_documentations_path,
-                notice: 'The documentation was deleted successfully!'
+                notice: t('controllers.crud.success.destroy',
+                          model: t("activerecord.models.#{Documentation.to_s.underscore}"))
   end
 
   private

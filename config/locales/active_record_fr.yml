@@ -1,0 +1,43 @@
+fr:
+  activerecord:
+    attributes:
+      user:
+        current_password: Mot de passe actuel
+        first_name: Prénom
+        last_name: Nom
+        cis: CIS
+        rank: Rang
+        email: Email
+        password: Mot de passe
+        remember_me: Se souvenir de moi
+      daily_question:
+        scheduled_at: Programmée le
+    models:
+      user: Utilisateur
+      daily_question: Nouvelle question
+      question_decorator: Question
+      question: Question
+      documentation: Documentation
+    errors:
+      models:
+        user:
+          attributes:
+            first_name:
+              blank: ne peut être vide
+            last_name:
+              blank: ne peut être vide
+            cis:
+              blank: ne peut être vide
+            email:
+              blank: ne peut être vide
+              taken: déjà pris
+            password:
+              blank: ne peut être vide
+              too_short: trop court
+        daily_question:
+          attributes:
+            scheduled_at:
+              taken: date déjà prise
+              blank: ne peut être vide
+            question:
+              required: avec un numéro
