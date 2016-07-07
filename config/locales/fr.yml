@@ -1,0 +1,4 @@
+fr:
+  forms:
+    errors:
+      header: 'Il y a des erreurs :'
