@@ -30,6 +30,9 @@ fr:
               required: avec un numéro
     models:
       user: Utilisateur
+  forms:
+    errors:
+      header: 'Il y a des erreurs :'
   devise:
     confirmations:
       confirmed: Votre compte a été confirmé avec succès.

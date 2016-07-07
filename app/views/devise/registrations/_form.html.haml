@@ -1,4 +1,4 @@
-= devise_error_messages!
+= render('layouts/forms/errors', model_with_errors: @user) if @user.errors.any?
 .field
   %h4= f.label :first_name
   = f.text_field :first_name, class: 'form-control' , autofocus: true
