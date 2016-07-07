@@ -10,8 +10,8 @@ RSpec.feature 'Users index' do
     given(:user) { create(:user) }
 
     scenario 'should forbid the access to the users list' do
-      expect(page).to have_content "You're not allowed to access
-                                    this area: get out!"
+      expect(page).to have_content "Vous n'êtes pas administrateur,
+                                    accès interdit !"
       expect(page.current_path).to eq(my_profile_path)
     end
   end

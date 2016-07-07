@@ -17,7 +17,9 @@ class Admin::DailyQuestionsController < AdminController
     @daily_question = DailyQuestion.new(daily_question_params)
     if @daily_question.save
       redirect_to admin_daily_question_path(@daily_question.id),
-                  notice: 'The daily question was added successfully!'
+                  notice: t('controllers.crud.success.update',
+                          model: t("activerecord.models.#{DailyQuestion.to_s.underscore}"))
+
     else
       render :new
     end
@@ -29,7 +31,9 @@ class Admin::DailyQuestionsController < AdminController
   def update
     if @daily_question.update(daily_question_params)
       redirect_to admin_daily_question_path(@daily_question.id),
-                  notice: 'The daily question was updated successfully!'
+                  notice: t('controllers.crud.success.update',
+                            model: t("activerecord.models.#{DailyQuestion.to_s.underscore}"))
+
     else
       render :edit
     end
@@ -38,7 +42,8 @@ class Admin::DailyQuestionsController < AdminController
   def destroy
     @daily_question.destroy
     redirect_to admin_daily_questions_path,
-                notice: 'The daily question was deleted successfully!'
+                notice: t('controllers.crud.success.update',
+                          model: t("activerecord.models.#{DailyQuestion.to_s.underscore}"))
   end
 
   private

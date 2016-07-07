@@ -1,17 +1,17 @@
 = render('layouts/forms/errors', model_with_errors: @user) if @user.errors.any?
 .field
   %h4= f.label :first_name
-  = f.text_field :first_name, class: 'form-control' , autofocus: true
+  = f.text_field :first_name, class: 'form-control' , autofocus: true, required: true
 .field
   %h4= f.label :last_name
-  = f.text_field :last_name, class: 'form-control'
+  = f.text_field :last_name, class: 'form-control', required: true
 .field
   %h4= f.label :cis
-  = f.text_field :cis, class: 'form-control'
+  = f.text_field :cis, class: 'form-control', required: true
 .field
   %h4= f.label :rank
   = f.select(:rank,
     @ranks.map { |key, value| [ value[:name], key ] }, {}, {class: 'form form-group form-control'})
 .field
   %h4= f.label :email
-  = f.email_field :email, class: 'form-control', autofocus: true
+  = f.email_field :email, class: 'form-control', autofocus: true, required: true

@@ -1,38 +1,4 @@
 fr:
-  date:
-    formats:
-      short: "%d-%m-%Y"
-  activerecord:
-    attributes:
-      user:
-        current_password: Mot de passe actuel
-        first_name: Prénom
-        last_name: Nom
-        cis: CIS
-        rank: Rang
-        email: Email
-        password: Mot de passe
-        remember_me: Se souvenir de moi
-      daily_question:
-        scheduled_at: Date
-    errors:
-      models:
-        user:
-          attributes:
-            email:
-              blank: ne peut être vide
-        daily_question:
-          attributes:
-            scheduled_at:
-              taken: déjà prise
-              blank: ne peut être vide
-            question:
-              required: avec un numéro
-    models:
-      user: Utilisateur
-  forms:
-    errors:
-      header: 'Il y a des erreurs :'
   devise:
     confirmations:
       confirmed: Votre compte a été confirmé avec succès.
