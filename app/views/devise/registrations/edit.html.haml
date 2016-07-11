@@ -6,15 +6,11 @@
       En attente de confirmation pour: #{resource.unconfirmed_email}
   .field
     %h4= f.label :password
-    = f.password_field :password, class: 'form-control', autocomplete: 'off', required: true
+    = f.password_field :password, class: 'form-control', autocomplete: 'off'
     %i (Laisser vide si vous ne souhaitez rien changer)
   .field
     %h4= f.label :password_confirmation
-    = f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off', required: true
-  .field
-    %h4= f.label :current_password
-    = f.password_field :current_password, class: 'form-control', autocomplete: 'off', required: true
-    %i (Nous avons besoin de votre mot de passe actuel pour valider les changements)
+    = f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off'
   .actions
     = f.submit 'Mettre à jour', class: 'btn btn-primary'
 %p
