@@ -28,8 +28,7 @@ class Admin::UsersController < AdminController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :cis, :rank, :email,
-                                 :password, :password_confirmation,
-                                 :current_password, :is_admin)
+                                 :password, :password_confirmation,:is_admin)
   end
 
   def assign_user
