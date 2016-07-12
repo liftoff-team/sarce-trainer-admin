@@ -1,5 +1,5 @@
 .flexbox
-  .panel.panel-info.col-lg-12
+  .panel.panel-info.fixed-panel.col-lg-12
     .panel-heading
       %h1.panel-title
         %img
@@ -15,15 +15,18 @@
         %strong Email:
         = @me.email
       .profile-padding
-        %strong Nombre de réponses répondues:
-      - @questions.each do |question|
-        = question.answer_counter
+      %strong Nombre de réponses répondues:
+      - @users.each do |user|
+        = user.answered_counter
       .profile-padding
-        %strong Nombre de questions créées:
-      - @questions.each do |question|
-        = question.answer_counter
+      %strong Nombre de questions créées:
+      - @users.each do |user|
+        = user.questions_counter
       .profile-padding
-        %strong Dernières questions répondues:
-        = @given_answer
+      %h4.text-primary Dernières questions répondues:
+      -#   = @given_answer
+      -# - @given_answers.each do |given_answer|
+      -#   = given_answer.created_at
+      -#   = given_answer.question.body
 
   = link_to 'Modifier le profil', edit_user_registration_path, class: 'btn btn-primary pull-right'
