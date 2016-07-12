@@ -15,4 +15,15 @@
         %strong Email:
         = @me.email
       .profile-padding
+        %strong Nombre de réponses répondues:
+      - @questions.each do |question|
+        = question.answer_counter
+      .profile-padding
+        %strong Nombre de questions créées:
+      - @questions.each do |question|
+        = question.answer_counter
+      .profile-padding
+        %strong Dernières questions répondues:
+        = @given_answer
+
   = link_to 'Modifier le profil', edit_user_registration_path, class: 'btn btn-primary pull-right'
