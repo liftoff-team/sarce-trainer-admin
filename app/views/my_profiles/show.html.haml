@@ -1,16 +1,18 @@
-.panel.panel-info
-  .panel-heading
-    %h3.panel-title
-      Profil
-  .panel-body
-    .profile-padding
-      %strong Email:
-      = @me.email
-    .profile-padding
-      %strong CIS:
-      = @me.cis
-    .profile-padding
-      %strong Rank:
-      = @rank[:name]
-    %div= image_tag(@rank[:image_path], class: 'thumbnail')
-= link_to 'Modifier le profil', edit_user_registration_path, class: 'btn btn-primary'
+.flexbox
+  .panel.panel-info.col-lg-12
+    .panel-heading
+      %h1.panel-title
+        %img
+        = image_tag(@rank[:image_path], width: 22)
+        %span
+          = @rank[:name]
+        %span
+          = "#{current_user.first_name} #{current_user.last_name}"
+        %span.row.pull-right
+          = @me.cis
+    .panel-body
+      .profile-padding
+        %strong Email:
+        = @me.email
+      .profile-padding
+  = link_to 'Modifier le profil', edit_user_registration_path, class: 'btn btn-primary pull-right'
