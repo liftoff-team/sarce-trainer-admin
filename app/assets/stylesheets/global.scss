@@ -24,6 +24,12 @@ body {
     margin-right: 12rem;
   }
 
+  .logo {
+    color: #a52a2a;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
 .btn.btn-primary {
    margin-top: 1rem;
    margin-bottom: 0.5rem;
@@ -45,6 +51,11 @@ body {
  .glyphicon-plus {
    padding-left: 10px;
    font-size: 20px;
+ }
+
+ .glyphicon-off {
+   font-size: 25px;
+   color: #8b0000;
  }
 
  .title {

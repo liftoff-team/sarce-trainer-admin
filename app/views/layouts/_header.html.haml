@@ -5,11 +5,14 @@
 
 %ul.nav.nav-pills.navbar-fixed-top.well
   - if user_signed_in?
+    %li.logo SARCE TRAINER
     %li{class: active_class(questions_path), role: 'presentation'}= link_to 'Questions', questions_path
     %li{class: active_class(admin_daily_questions_path), role: 'presentation'}= link_to 'Questions journalières', admin_daily_questions_path
-    %li{class: active_class(destroy_user_session_path), role: 'presentation'}= link_to 'Déconnexion', destroy_user_session_path, method: :delete
     - if current_user.is_admin?
       %li{class: active_class(admin_users_path), role: 'presentation'}= link_to 'Voir la liste des utilisateurs', admin_users_path
+    %li.navbar-right{class: active_class(destroy_user_session_path), role: 'presentation'}
+      = link_to  destroy_user_session_path, method: :delete do
+        %span.glyphicon.glyphicon-off
     %li.navbar-right{class: active_class(my_profile_path), role: 'presentation'}= link_to "#{current_user.first_name} #{current_user.last_name}", my_profile_path
   - else
     %li{class: active_class(new_user_registration_path), role: 'presentation'}= link_to 'Inscription', new_user_registration_path
