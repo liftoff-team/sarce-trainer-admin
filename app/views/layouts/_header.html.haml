@@ -6,7 +6,7 @@
 %ul.nav.nav-pills.navbar-fixed-top.well
   - if user_signed_in?
     %li.logo SARCE TRAINER
-    %li{class: active_class(questions_path), role: 'presentation'}= link_to 'Questions', questions_path
+    %li.navbar-left{class: active_class(questions_path), role: 'presentation'}= link_to 'Questions', questions_path, class: 'navbar-left'
     %li{class: active_class(admin_daily_questions_path), role: 'presentation'}= link_to 'Questions journalières', admin_daily_questions_path
     - if current_user.is_admin?
       %li{class: active_class(admin_users_path), role: 'presentation'}= link_to 'Voir la liste des utilisateurs', admin_users_path
