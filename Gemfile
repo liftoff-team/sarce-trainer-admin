@@ -42,6 +42,7 @@ group :development do
   gem 'spring',               '~> 1.7'            # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring-watcher-listen', '~> 2.0'           # Makes spring watch files using the listen gem.
   gem 'annotate',             '~> 2.7'            # Add a comment summarizing the current schema to the top of the files
+  gem 'letter_opener',        '~> 1.4'            # When mail is sent from your application, Letter Opener will open a preview in the browser instead of sending.
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
