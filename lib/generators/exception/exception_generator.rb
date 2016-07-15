@@ -3,12 +3,12 @@ class ExceptionGenerator < Rails::Generators::NamedBase
 
   def copy_initializer_file
     file_name.gsub! "_exception", ""
-    class_path.delete("unowhy")
+    class_path.delete("sarce")
 
     if class_path.empty?
-      exception_file_path = "app/exceptions/unowhy/#{file_name}_exception.rb"
+      exception_file_path = "app/exceptions/sarce/#{file_name}_exception.rb"
     else
-      exception_file_path = "app/exceptions/unowhy/#{class_path.join('/')}/#{file_name}_exception.rb"
+      exception_file_path = "app/exceptions/sarce/#{class_path.join('/')}/#{file_name}_exception.rb"
     end
 
     copy_file "exception.rb", exception_file_path

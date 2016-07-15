@@ -1,2 +1,2 @@
-class Unowhy::_ExceptionName_Exception < StandardError
+class Sarce::_ExceptionName_Exception < StandardError
 end
