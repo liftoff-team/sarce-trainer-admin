@@ -13,7 +13,7 @@ class Admin::UsersController < AdminController
   end
 
   def update
-    if @user.update(user_params)
+    if UserService.new(user: @user).smart_update(user_params)
       redirect_to admin_user_path(@user.id),
                   notice: t('controllers.crud.success.update',
                   model: t("activerecord.models.#{User.to_s.underscore}"))
@@ -22,6 +22,8 @@ class Admin::UsersController < AdminController
       @ranks = Rank.const_get(:RANKS)
       render :edit
     end
+  rescue Sarce::PasswordMismatchException => e
+    # TODO: rescue service exception
   end
 
   private
