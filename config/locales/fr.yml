@@ -1,4 +1,21 @@
 fr:
+  welcome:
+    "Bienvenu(e), %{name}!"
+  you_can_confirm_your_account_email_through_the_link_below: "Vous pouvez confirmer votre compte en cliquant sur le lien ci-dessous"
+  wrong_request_instruction: "Si vous n'avez pas demandé ce changement, ignorez ce message."
+  your_password_won't_change_until_you_access_the_link_above_and_create_a_new_one: "Votre mot de passe ne sera pas changé tant que vous n'aurez pas accédé au lien ci-dessus pour en créer un nouveau."
+  reset_password_instruction: "Un changement de mot de passe a été demandé. Vous pouvez le faire en cliquant sur le lien ci-dessous."
+  We_are_contacting_you_to_notify_you_that_your_password_has_been_changed: "Votre mot de passe a été modifié"
+  change_my_password: "Changer mon mot de passe"
+  edit:
+  change_your_password: "Changez votre mot de passe"
+  change_my_password: "Changer mon mot de passe"
+  new:
+  send_me_reset_password_instructions: "Envoyez-moi un email pour changer mon mot de passe"
+  errors:
+    messages:
+      not_found: "n'a pas été trouvé(e)"
+      already_confirmed: "a déjà été confirmé(e)"
   forms:
     errors:
       header: 'Il y a des erreurs :'

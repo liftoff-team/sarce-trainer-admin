@@ -64,5 +64,21 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   Rails.application.routes.default_url_options[:host] =
-    'sarce-trainer-admin.herokuapp.com'
+    'www.sarce-trainer-admin.herokuapp.com'
+
+ config.active_support.deprecation = :notify
+
+ config.action_mailer.delivery_method = :smtp
+ config.action_mailer.raise_delivery_errors = true
+ config.action_mailer.default :charset => "utf-8"
+
+ # SMTP settings
+ ActionMailer::Base.smtp_settings = {
+     :port           => 587,
+     :address        => 'smtp.gmail.com',
+     :domain         => 'gmail.com',
+     :user_name      => ENV['username'],
+     :password       => ENV['password'],
+     :authentication => :plain,
+ }
 end
