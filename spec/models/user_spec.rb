@@ -15,4 +15,8 @@ RSpec.describe User do
 
     it { is_expected.to validate_confirmation_of(:password) }
   end
+
+  describe 'association' do
+    it { is_expected.to have_many(:questions) }
+  end
 end
