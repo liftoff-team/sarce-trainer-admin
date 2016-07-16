@@ -41,3 +41,9 @@ fr:
               blank: ne peut être vide
             question:
               required: avec un numéro
+        question:
+          attributes:
+            documentation:
+              required: obligatoire
+            documentation_id:
+              blank: ne peut être vide
