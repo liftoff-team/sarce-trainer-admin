@@ -10,8 +10,17 @@ RSpec.describe Admin::UsersController do
     end
   end
 
-  pending 'PATCH update' do
-    # TODO (Arnaud Lenglet): to implement
-    # it { expect(UserService.new()).to have_received(:smart_update).with(...)}
+  describe 'PATCH update' do
+    let(:user) { create(:user) }
+    let(:user_service) { UserService.new(user: user) }
+    let(:update_params) { { cis: 'OSNY' } }
+
+    before do
+      allow(user_service).to receive(:smart_update).and_call_original
+      patch :update, id: user.id, user: update_params
+    end
+
+    it { expect(response).to have_http_status(:success) }
+    it { expect(user_service).to have_received(:smart_update).with(update_params)}
   end
 end

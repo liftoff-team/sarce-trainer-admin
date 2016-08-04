@@ -1,5 +1,6 @@
 class Admin::UsersController < AdminController
   before_action :assign_user, only: %i(show edit update)
+
   def index
     @users = User.all
   end
@@ -13,16 +14,18 @@ class Admin::UsersController < AdminController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to admin_user_path(@user.id),
-                  notice: t('controllers.crud.success.update',
-                  model: t("activerecord.models.#{User.to_s.underscore}"))
+    user_service = UserService.new(user: @user)
+    user_service.smart_update(user_params)
+    redirect_to admin_user_path(@user.id),
+                notice: t('controllers.crud.success.update',
+                model: t("activerecord.models.#{User.to_s.underscore}"))
 
-    else
-      @ranks = Rank.const_get(:RANKS)
-      render :edit
-    end
+  rescue Sarce::PasswordMismatchException => e
+      redirect_to admin_user_path(@user.id),
+                  notice: e.message
   end
+
+
   private
 
   def user_params
