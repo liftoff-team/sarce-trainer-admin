@@ -31,7 +31,7 @@ group :test do
   gem 'capybara',             '~> 2.7'            # Capybara is an integration testing tool for rack based web applications. It simulates how a user would interact with a website
   gem 'selenium-webdriver',   '~> 2.53'
   gem 'poltergeist'
-  gem 'phantomjs',            '1.9.7', require: 'phantomjs/poltergeist'
+  gem 'phantomjs',            '~> 2.1'
   gem 'codeclimate-test-reporter'
 end
 
