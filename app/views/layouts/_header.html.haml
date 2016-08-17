@@ -7,6 +7,7 @@
   - if user_signed_in?
     %li{class: active_class(my_profile_path), role: 'presentation'}= link_to "#{current_user.first_name} #{current_user.last_name}", my_profile_path
     %li{class: active_class(questions_path), role: 'presentation'}= link_to 'Questions', questions_path
+    %li{class: active_class(admin_documentations_path), role: 'presentation'}= link_to 'Documentations', admin_documentations_path
     %li{class: active_class(admin_daily_questions_path), role: 'presentation'}= link_to 'Questions journalières', admin_daily_questions_path
     %li{class: active_class(destroy_user_session_path), role: 'presentation'}= link_to 'Déconnexion', destroy_user_session_path, method: :delete
     - if current_user.is_admin?
